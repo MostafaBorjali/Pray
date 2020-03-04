@@ -10,6 +10,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -49,8 +50,11 @@ class DashboardFragment : Fragment() {
     }
 
     private fun prepar() {
+
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
-        Handler().postDelayed({
+
+        Handler().postDelayed(
+            {
             mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
             mSensorManager.registerListener(
                 sensListener,
@@ -59,7 +63,7 @@ class DashboardFragment : Fragment() {
             )
             step = 0
             setStep(step)
-        }, 2000)
+        }, 300)
     }
 
     private val sensListener: SensorEventListener = object : SensorEventListener {
@@ -78,38 +82,50 @@ class DashboardFragment : Fragment() {
         override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
     }
 
-    private fun setStep(currentState: Int) {
+    private fun setStep(currentState: Int) : Boolean {
+
+        //val animationIn = AnimationUtils.loadAnimation(context,R.anim.left_to_right_in)
+       // val animationOut = AnimationUtils.loadAnimation(context,R.anim.left_to_right_out)
+       // imgRocaat.inAnimation = animationIn
+       // imgRocaat.outAnimation = animationOut
+
         when (currentState) {
             0 -> {
                 imgRocaat.setImageResource(R.drawable.alah)
             }
             1 -> {
-                Toast.makeText(context, "Rockaat1 ----- sejdeh 1", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_1_1)
             }
             2 -> {
-                Toast.makeText(context, "Rockaat1 ----- sejdeh 2222", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_1_2)
             }
             3 -> {
-                Toast.makeText(context, "Rockaat222 ----- sejdeh 1", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_2_1)
             }
             4 -> {
-                Toast.makeText(context, "Rockaat222 ----- sejdeh 222", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_2_2)
             }
             5 -> {
-                Toast.makeText(context, "Rockaat333 ----- sejdeh 1", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_3_1)
             }
             6 -> {
-                Toast.makeText(context, "Rockaat3333 ----- sejdeh 2222", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_3_2)
             }
             7 -> {
-                Toast.makeText(context, "Rockaat444 ----- sejdeh 1", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_4_1)
             }
             8 -> {
-                Toast.makeText(context, "Rockaat444 ----- sejdeh 22222", Toast.LENGTH_LONG).show()
+                imgRocaat.setImageResource(R.drawable.ic_4_2)
+            }
+            9 -> {
+                imgRocaat.setImageResource(R.drawable.alah)
             }
             else -> {
+                return false
             }
+
         }
+        return true
     }
 
     private fun getTime(): Long {
