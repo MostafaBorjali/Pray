@@ -22,6 +22,7 @@
         android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
         android:text="عصر"
+        android:fontFamily="@font/estedad_medium"
         android:textColor="@color/titleTextColor"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
@@ -38,6 +39,7 @@
         android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
         android:text="ظهر"
+        android:fontFamily="@font/estedad_medium"
         android:textColor="@color/titleTextColor"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
@@ -54,6 +56,7 @@
         android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
         android:text="صبح"
+        android:fontFamily="@font/estedad_medium"
         android:textColor="@color/titleTextColor"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
@@ -69,7 +72,8 @@
         android:id="@+id/materialButton"
         android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
-        android:text="اعشا"
+        android:text="اعشاء"
+        android:fontFamily="@font/estedad_medium"
         android:textColor="@color/titleTextColor"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
@@ -87,6 +91,7 @@
         android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
         android:text="مغرب"
+        android:fontFamily="@font/estedad_medium"
         android:textColor="@color/titleTextColor"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"
@@ -114,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -122,5 +127,31 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.77" />
+
+    <TextView
+        android:id="@+id/txt_sejde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_18sdp"
+        android:fontFamily="@font/estedad_medium"
+        android:textColor="@color/titleTextColor"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/txt_rokaat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textSize="@dimen/_18sdp"
+        android:fontFamily="@font/estedad_medium"
+        android:textColor="@color/titleTextColor"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
