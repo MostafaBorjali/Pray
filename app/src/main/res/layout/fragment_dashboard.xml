@@ -1,157 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/back"
-    android:keepScreenOn="true"
-    android:orientation="vertical"
-    tools:context=".ui.dashboard.DashboardFragment">
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back"
+        android:keepScreenOn="true"
+        android:orientation="vertical"
+        tools:context=".ui.dashboard.DashboardFragment">
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.88" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.88" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton5"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="wrap_content"
-        android:text="عصر"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/design_default_color_background"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton2"
-        app:layout_constraintEnd_toStartOf="@+id/materialButton3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/materialButton2"
-        app:layout_constraintTop_toTopOf="@+id/materialButton2" />
+        <ImageView
+            android:id="@+id/imgRocaat"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="0dp"
+            android:src="@drawable/alah"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton3"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="wrap_content"
-        android:text="ظهر"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/design_default_color_background"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton5"
-        app:layout_constraintEnd_toStartOf="@+id/materialButton4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/materialButton5"
-        app:layout_constraintTop_toTopOf="@+id/materialButton5" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton4"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="wrap_content"
-        android:text="صبح"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/design_default_color_background"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/materialButton3"
-        app:layout_constraintTop_toTopOf="@+id/materialButton3" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="wrap_content"
-        android:text="اعشاء"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/design_default_color_background"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/materialButton2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.69" />
+        <TextView
+            android:id="@+id/txt_sejde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_25sdp"
+            android:textStyle="bold"
+            android:fontFamily="@font/estedad_medium"
+            android:textColor="@color/TextColor"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton2"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="wrap_content"
-        android:text="مغرب"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        android:textSize="@dimen/_10sdp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/design_default_color_background"
-        app:cornerRadius="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialButton"
-        app:layout_constraintEnd_toStartOf="@+id/materialButton5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/materialButton"
-        app:layout_constraintTop_toTopOf="@+id/materialButton" />
+        <TextView
+            android:id="@+id/txt_rokaat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:textSize="@dimen/_25sdp"
+            android:textStyle="bold"
+            android:fontFamily="@font/estedad_medium"
+            android:textColor="@color/TextColor"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imgRocaat"
-        android:layout_width="@dimen/_170sdp"
-        android:layout_height="0dp"
-        android:src="@drawable/alah"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            app:direction="@{`gridView`}"
+            app:layout_constraintVertical_bias="1.0"
+            tools:listitem="@layout/item_recycler_time_namaz" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
-
-    <TextView
-        android:id="@+id/txt_sejde"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/_18sdp"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <TextView
-        android:id="@+id/txt_rokaat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:textSize="@dimen/_18sdp"
-        android:fontFamily="@font/estedad_medium"
-        android:textColor="@color/titleTextColor"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

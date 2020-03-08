@@ -1,6 +1,7 @@
 @file:Suppress("DEPRECATION")
 
 package com.borjali.mostafa.pray.ui.dashboard
+
 import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -8,7 +9,7 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,21 +20,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.borjali.mostafa.pray.R
 import kotlinx.android.synthetic.main.fragment_dashboard.*
-import java.util.*
 
 
 class DashboardFragment : Fragment() {
     private var resID: Int = 0
-    private val waitTime: Long = 1000
     private var step = 0
-    private var waitingTime: Long = 0
-    private var isNear = false
     private lateinit var mSensorManager: SensorManager
     private var mSensor: Sensor? = null
-
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var dashboardViewModel: DashboardViewModel
-
+    private var list = ArrayList<String>()
+    private lateinit var adapter: ButtonAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,35 +45,33 @@ class DashboardFragment : Fragment() {
     }
 
     private fun initView() {
-        resID = resources.getIdentifier("knob", "raw", context?.packageName)
+        list.add("صبح")
+        list.add("ظهر")
+        list.add("عصر")
+        list.add("مغرب")
+        list.add("اعشاء")
+        Log.e("list", list.toString())
+        adapter = ButtonAdapter(list) {
+            mediaPlayer.start()
+            adapter.notifyDataSetChanged()
+        }
+         listButton.adapter = adapter
+        resID = resources.getIdentifier("pull_back", "raw", context?.packageName)
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
-        Handler().postDelayed({
-                mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
-                mSensorManager.registerListener(
-                    sensListener,
-                    mSensor,
-                    SensorManager.SENSOR_DELAY_NORMAL
-                )
-                step = 0
-                setStep(step)
-            }, 300)
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
     }
+
     private val sensListener: SensorEventListener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent) {
-            if (event.values[0] == 0.toFloat()) {
-                if (waitingTime < getTime()) isNear = true
-            } else {
-                if (isNear) {
-                    isNear = false
-                    setStep(++step)
-                    waitingTime = getTime() + waitTime
-                }
+            if (event.values[0] < mSensor?.maximumRange!!) {
+                setStep(++step)
             }
         }
 
         override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
     }
+
     private fun setStep(currentState: Int): Boolean {
 
         when (currentState) {
@@ -148,7 +143,7 @@ class DashboardFragment : Fragment() {
                 imageViewAnimatedChange(
                     newImage = R.drawable.alah,
                     rokaatMessage = "",
-                    sejdeMessage =""
+                    sejdeMessage = ""
                 )
             }
             else -> {
@@ -158,12 +153,20 @@ class DashboardFragment : Fragment() {
         }
         return true
     }
-    private fun getTime(): Long {
-        return Calendar.getInstance().timeInMillis
+
+    override fun onResume() {
+        mSensorManager.registerListener(
+            sensListener, mSensor,
+            SensorManager.SENSOR_DELAY_NORMAL
+        )
+        step = 0
+        setStep(step)
+        super.onResume()
     }
-    override fun onDestroyView() {
+
+    override fun onPause() {
         mSensorManager.unregisterListener(sensListener)
-        super.onDestroyView()
+        super.onPause()
     }
 
     private fun imageViewAnimatedChange(
@@ -191,5 +194,4 @@ class DashboardFragment : Fragment() {
         })
         imgRocaat.startAnimation(animOut)
     }
-
 }
