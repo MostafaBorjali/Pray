@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
+    android:background="@drawable/mehrab"
     android:keepScreenOn="true"
     android:orientation="vertical"
     tools:context=".ui.dashboard.DashboardFragment">
@@ -22,6 +22,7 @@
         android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
         android:text="عصر"
+
         android:textColor="@color/titleTextColor"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold"

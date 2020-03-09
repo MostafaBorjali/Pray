@@ -132,4 +132,9 @@ class DashboardFragment : Fragment() {
         return Calendar.getInstance().timeInMillis
     }
 
+    override fun onDestroy() {
+        mSensorManager.unregisterListener(sensListener)
+        super.onDestroy()
+    }
+
 }
