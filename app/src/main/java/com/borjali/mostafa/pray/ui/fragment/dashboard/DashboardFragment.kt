@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.borjali.mostafa.pray.ui.dashboard
+package com.borjali.mostafa.pray.ui.fragment.dashboard
 
 import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor
@@ -8,54 +8,48 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.media.MediaPlayer
-import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import android.widget.Toast
 import com.borjali.mostafa.pray.R
+import com.borjali.mostafa.pray.databinding.FragmentDashboardBinding
+import com.borjali.mostafa.pray.ui.base.BaseFragment
+import com.borjali.mostafa.pray.utils.Data
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     private var resID: Int = 0
     private var step = 0
     private lateinit var mSensorManager: SensorManager
     private var mSensor: Sensor? = null
     private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var list = ArrayList<String>()
     private lateinit var adapter: ButtonAdapter
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun getLayoutResourceId() = R.layout.fragment_dashboard
+
+    override fun oncreate() {
         initView()
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
-
-
     }
 
     private fun initView() {
-        list.add("صبح")
-        list.add("ظهر")
-        list.add("عصر")
-        list.add("مغرب")
+        Data.position = 10
+        var list = ArrayList<String>()
         list.add("اعشاء")
+        list.add("مغرب")
+        list.add("عصر")
+        list.add("ظهر")
+        list.add("صبح")
         Log.e("list", list.toString())
-        adapter = ButtonAdapter(list) {
-            mediaPlayer.start()
-            adapter.notifyDataSetChanged()
-        }
-         listButton.adapter = adapter
+         adapter = ButtonAdapter(list) {
+             mediaPlayer.start()
+             step = 0
+             setStep(0)
+             adapter.notifyDataSetChanged()
+         }
+
+        binding.recycelerView.adapter = adapter
         resID = resources.getIdentifier("pull_back", "raw", context?.packageName)
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
@@ -99,6 +93,7 @@ class DashboardFragment : Fragment() {
                     rokaatMessage = "رکعت دوم ",
                     sejdeMessage = "سجده اول"
                 )
+
             }
             4 -> {
                 imageViewAnimatedChange(
@@ -108,11 +103,21 @@ class DashboardFragment : Fragment() {
                 )
             }
             5 -> {
-                imageViewAnimatedChange(
-                    newImage = R.drawable.ic_3_1,
-                    rokaatMessage = "رکعت سوم",
-                    sejdeMessage = "سجده اول"
-                )
+                if (Data.rokaat == 2){
+                    step = 10
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.alah,
+                        rokaatMessage = "",
+                        sejdeMessage = ""
+                    )
+                }else{
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.ic_3_1,
+                        rokaatMessage = "رکعت سوم",
+                        sejdeMessage = "سجده اول"
+                    )
+                }
+
 
             }
             6 -> {
@@ -124,11 +129,21 @@ class DashboardFragment : Fragment() {
 
             }
             7 -> {
-                imageViewAnimatedChange(
-                    newImage = R.drawable.ic_4_1,
-                    rokaatMessage = "رکعت چهارم",
-                    sejdeMessage = "سجده اول"
-                )
+                if (Data.rokaat == 3){
+                    step = 10
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.alah,
+                        rokaatMessage = "",
+                        sejdeMessage = ""
+                    )
+                }else{
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.ic_4_1,
+                        rokaatMessage = "رکعت چهارم",
+                        sejdeMessage = "سجده اول"
+                    )
+                }
+
 
             }
             8 -> {
@@ -194,4 +209,6 @@ class DashboardFragment : Fragment() {
         })
         imgRocaat.startAnimation(animOut)
     }
+
+
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/back"
+        android:background="@drawable/mehrab"
         android:keepScreenOn="true"
         android:orientation="vertical"
-        tools:context=".ui.dashboard.DashboardFragment">
+        tools:context=".ui.fragment.dashboard.DashboardFragment">
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -73,18 +73,20 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listButton"
+            android:id="@+id/recycelerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:direction="@{`gridView`}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
-            app:direction="@{`gridView`}"
-            app:layout_constraintVertical_bias="1.0"
-            tools:listitem="@layout/item_recycler_time_namaz" />
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

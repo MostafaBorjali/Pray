@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.ui.dashboard
+package com.borjali.mostafa.pray.ui.fragment.dashboard
 
 
 import androidx.lifecycle.LiveData

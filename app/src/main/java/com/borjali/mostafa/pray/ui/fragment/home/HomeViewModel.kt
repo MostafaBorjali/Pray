@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.ui.home
+package com.borjali.mostafa.pray.ui.fragment.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

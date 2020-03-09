@@ -3,14 +3,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/btn_background"
-            android:layout_width="@dimen/_55sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_33sdp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -32,9 +31,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/_18sdp"
-                android:textColor="@color/background"
-                android:text="صبح" />
+                android:textSize="@dimen/_15sdp"
+                 />
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

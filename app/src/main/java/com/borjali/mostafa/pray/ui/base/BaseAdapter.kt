@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.utils
+package com.borjali.mostafa.pray.ui.base
 
 
 import android.content.Context

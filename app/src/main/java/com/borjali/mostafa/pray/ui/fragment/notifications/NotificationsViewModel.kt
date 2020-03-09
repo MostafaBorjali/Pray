@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.ui.notifications
+package com.borjali.mostafa.pray.ui.fragment.notifications
 
 
 import androidx.lifecycle.LiveData
