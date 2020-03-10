@@ -12,7 +12,6 @@ import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.FragmentDashboardBinding
 import com.borjali.mostafa.pray.ui.base.BaseFragment
@@ -42,12 +41,12 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         list.add("ظهر")
         list.add("صبح")
         Log.e("list", list.toString())
-         adapter = ButtonAdapter(list) {
-             mediaPlayer.start()
-             step = 0
-             setStep(0)
-             adapter.notifyDataSetChanged()
-         }
+        adapter = ButtonAdapter(list) {
+            mediaPlayer.start()
+            step = 0
+            setStep(0)
+            adapter.notifyDataSetChanged()
+        }
 
         binding.recycelerView.adapter = adapter
         resID = resources.getIdentifier("pull_back", "raw", context?.packageName)
@@ -103,14 +102,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
                 )
             }
             5 -> {
-                if (Data.rokaat == 2){
+                if (Data.rokaat == 2) {
                     step = 10
                     imageViewAnimatedChange(
-                        newImage = R.drawable.alah,
+                        newImage = R.drawable.salam,
                         rokaatMessage = "",
                         sejdeMessage = ""
                     )
-                }else{
+                } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_3_1,
                         rokaatMessage = "رکعت سوم",
@@ -129,14 +128,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
             }
             7 -> {
-                if (Data.rokaat == 3){
+                if (Data.rokaat == 3) {
                     step = 10
                     imageViewAnimatedChange(
-                        newImage = R.drawable.alah,
+                        newImage = R.drawable.salam,
                         rokaatMessage = "",
                         sejdeMessage = ""
                     )
-                }else{
+                } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_4_1,
                         rokaatMessage = "رکعت چهارم",
@@ -156,7 +155,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             }
             9 -> {
                 imageViewAnimatedChange(
-                    newImage = R.drawable.alah,
+                    newImage = R.drawable.salam,
                     rokaatMessage = "",
                     sejdeMessage = ""
                 )
@@ -209,6 +208,5 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         })
         imgRocaat.startAnimation(animOut)
     }
-
 
 }
