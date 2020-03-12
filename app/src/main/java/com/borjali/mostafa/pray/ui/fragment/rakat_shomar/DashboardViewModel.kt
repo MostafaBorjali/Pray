@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.ui.fragment.dashboard
+package com.borjali.mostafa.pray.ui.fragment.rakat_shomar
 
 
 import androidx.lifecycle.LiveData

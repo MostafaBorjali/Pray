@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.ui.fragment.dashboard
+package com.borjali.mostafa.pray.ui.fragment.rakat_shomar
 
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.ItemRecyclerTimeNamazBinding

@@ -1,4 +1,4 @@
-package com.borjali.mostafa.pray.ui.fragment.home
+package com.borjali.mostafa.pray.ui.fragment.ahkam
 
 import android.os.Bundle
 import android.view.LayoutInflater

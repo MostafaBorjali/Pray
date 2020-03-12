@@ -8,7 +8,7 @@
         android:background="@drawable/mehrab"
         android:keepScreenOn="true"
         android:orientation="vertical"
-        tools:context=".ui.fragment.dashboard.DashboardFragment">
+        tools:context=".ui.fragment.rakat_shomar.DashboardFragment">
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -22,7 +22,6 @@
             android:id="@+id/imgRocaat"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="0dp"
-            android:src="@drawable/alah"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +84,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline" />
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            tools:listitem="@layout/item_recycler_time_namaz"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
