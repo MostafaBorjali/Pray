@@ -87,46 +87,29 @@
             app:layout_constraintTop_toTopOf="@+id/guideline"
             tools:listitem="@layout/item_recycler_time_namaz"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ZekerShomar"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/recycelerView"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ZekreShomar"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:text="تسبیحات "
+            android:fontFamily="@font/estedad_medium"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/holo_orange_light"
+            app:cornerRadius="@dimen/_10sdp"
+            app:elevation="6dp"
+            app:icon="@drawable/ic_rosary"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/_30sdp"
+            app:iconTint="@color/design_default_color_on_secondary"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3">
-
-            <TextView
-                android:id="@+id/txt_tasbihat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
-                android:gravity="center"
-                android:fontFamily="@font/estedad_medium"
-                android:text="تسبیحات حضرت فاطمه"
-                android:textColor="?android:attr/colorActivatedHighlight"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="@dimen/_60sdp"
-                android:scaleType="fitXY"
-                android:tint="?android:attr/colorActivatedHighlight"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/txt_tasbihat"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_rosary"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

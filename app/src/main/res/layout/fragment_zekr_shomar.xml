@@ -92,15 +92,15 @@
             android:layout_height="@dimen/_120sdp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_plus"
-            app:backgroundTint="@android:color/holo_orange_dark"
+            app:backgroundTint="?android:attr/colorPressedHighlight"
             app:fabCustomSize="@dimen/_120sdp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline5"
             app:maxImageSize="@dimen/_50sdp"
-            app:rippleColor="?android:attr/colorPressedHighlight" />
+            app:rippleColor="@android:color/holo_orange_dark"
+            app:srcCompat="@drawable/ic_plus" />
 
         <ImageView
             android:id="@+id/imageZeker"

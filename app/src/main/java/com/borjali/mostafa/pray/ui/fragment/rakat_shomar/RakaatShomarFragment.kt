@@ -56,8 +56,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
-        binding.txtTasbihat.text = "تسبیحات حضرت"+"\n"+"فاطمه (ع)"
-        binding.ZekerShomar.setOnClickListener { findNavController().navigate(R.id.zekrShomarFragment) }
+        binding.ZekreShomar.setOnClickListener { findNavController().navigate(R.id.zekrShomarFragment) }
     }
 
     private fun recyclerViewItemClicked() {
@@ -80,7 +79,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     private fun setStep(currentState: Int) {
         when (currentState) {
             0 -> {
-                binding.ZekerShomar.visibility = View.GONE
+                binding.ZekreShomar.visibility = View.GONE
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_start,
                     rakaatMessage = "",
@@ -117,7 +116,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                         rakaatMessage = "سلام و تشهد",
                         sejdeMessage = ""
                     )
-                    binding.ZekerShomar.visibility = View.VISIBLE
+                    binding.ZekreShomar.visibility = View.VISIBLE
 
                 }else{
                     imageViewAnimatedChange(
@@ -136,6 +135,8 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                         rakaatMessage = "",
                         sejdeMessage = ""
                     )
+                    binding.ZekreShomar.visibility = View.GONE
+
                 } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_3_1,
@@ -154,7 +155,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                         rakaatMessage = "سلام و تشهد",
                         sejdeMessage = ""
                     )
-                    binding.ZekerShomar.visibility = View.VISIBLE
+                    binding.ZekreShomar.visibility = View.VISIBLE
 
                 }else{
                     imageViewAnimatedChange(
@@ -167,37 +168,41 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
             }
             7 -> {
-                imageViewAnimatedChange(
-                    newImage = R.drawable.rakat_shomar_pices_4_1,
-                    rakaatMessage = "رکعت چهارم",
-                    sejdeMessage = "سجده اول"
-                )
+                if (Data.rokaat==3){
+                    step = 10
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.rakat_shomar_end,
+                        rakaatMessage = "",
+                        sejdeMessage = ""
+                    )
+                    binding.ZekreShomar.visibility = View.GONE
+                }else{
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.rakat_shomar_pices_4_1,
+                        rakaatMessage = "رکعت چهارم",
+                        sejdeMessage = "سجده اول"
+                    )
+                }
+
             }
             8 -> {
-            /*    imageViewAnimatedChange(
-                    newImage = R.drawable.rakat_shomar_pices_4_2,
-                    rokaatMessage = "رکعت چهارم",
-                    sejdeMessage = "سجده دوم"
-                )*/
                 imageViewAnimatedChange(
                     newImage = R.drawable.ic_namaz,
                     rakaatMessage = "سلام و تشهد",
                     sejdeMessage = ""
                 )
-                binding.ZekerShomar.visibility = View.VISIBLE
+                binding.ZekreShomar.visibility = View.VISIBLE
 
             }
             9 -> {
-                binding.ZekerShomar.visibility = View.GONE
-
+                binding.ZekreShomar.visibility = View.GONE
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_end,
                     rakaatMessage = "",
                     sejdeMessage = ""
                 )
             }
-            else -> {
-            }
+            else -> {}
         }
     }
 
