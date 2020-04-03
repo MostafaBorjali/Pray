@@ -8,6 +8,7 @@ class AmozeshFragment : BaseFragment<FragmentAmozeshBinding>() {
     override fun getLayoutResourceId() = R.layout.fragment_amozesh
 
     override fun oncreate() {
+        binding.menuAmozesh.txtTitleMenu.text = "آموزش"
     }
 
 }

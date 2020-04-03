@@ -8,5 +8,6 @@ class NamazFragment : BaseFragment<FragmentNamazBinding>() {
     override fun getLayoutResourceId() = R.layout.fragment_namaz
 
     override fun oncreate() {
+        binding.menuNamaz.txtTitleMenu.text = "نماز"
     }
 }
