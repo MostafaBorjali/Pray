@@ -2,7 +2,9 @@
 
 package com.borjali.mostafa.pray.ui.fragment.rakat_shomar
 
+import android.annotation.SuppressLint
 import android.content.Context.SENSOR_SERVICE
+import android.content.pm.ActivityInfo
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -12,22 +14,29 @@ import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
 import com.borjali.mostafa.pray.R
-import com.borjali.mostafa.pray.databinding.FragmentDashboardBinding
+import com.borjali.mostafa.pray.databinding.FragmentRakaatShomarBinding
+
 import com.borjali.mostafa.pray.ui.base.BaseFragment
 import com.borjali.mostafa.pray.utils.Data
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_rakaat_shomar.*
 
 
-class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
+class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     private var resID = 0
     private var step = 0
     private lateinit var mSensorManager: SensorManager
     private lateinit var mSensor: Sensor
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var adapter: ButtonAdapter
-    override fun getLayoutResourceId() = R.layout.fragment_dashboard
 
+
+    override fun getLayoutResourceId() = R.layout.fragment_rakaat_shomar
+
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun oncreate() {
+        activity?.apply {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
         initView()
     }
 
@@ -45,6 +54,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+       // binding.txtRokaat.setOnClickListener { findNavController().navigate(R.id.zekrShomarFragment) }
     }
 
     private fun recyclerViewItemClicked() {
@@ -69,14 +79,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             0 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_start,
-                    rokaatMessage = "",
+                    rakaatMessage = "",
                     sejdeMessage = ""
                 )
             }
             1 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_1_1,
-                    rokaatMessage = "رکعت اول",
+                    rakaatMessage = "رکعت اول",
                     sejdeMessage = "سجده اول"
                 )
 
@@ -84,37 +94,46 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             2 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_1_2,
-                    rokaatMessage = "رکعت اول",
+                    rakaatMessage = "رکعت اول",
                     sejdeMessage = "سجده دوم"
                 )
             }
             3 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_2_1,
-                    rokaatMessage = "رکعت دوم ",
+                    rakaatMessage = "رکعت دوم ",
                     sejdeMessage = "سجده اول"
                 )
 
             }
             4 -> {
-                imageViewAnimatedChange(
-                    newImage = R.drawable.rakat_shomar_pices_2_2,
-                    rokaatMessage = "رکعت دوم",
-                    sejdeMessage = "سجده دوم"
-                )
+                if (Data.rokaat==2){
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.ic_namaz,
+                        rakaatMessage = "سلام و تشهد",
+                        sejdeMessage = ""
+                    )
+                }else{
+                    imageViewAnimatedChange(
+                        newImage = R.drawable.ic_namaz,
+                        rakaatMessage = "رکعت دوم",
+                        sejdeMessage = "تشهد"
+                    )
+                }
+
             }
             5 -> {
                 if (Data.rokaat == 2) {
                     step = 10
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_end,
-                        rokaatMessage = "",
+                        rakaatMessage = "",
                         sejdeMessage = ""
                     )
                 } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_3_1,
-                        rokaatMessage = "رکعت سوم",
+                        rakaatMessage = "رکعت سوم",
                         sejdeMessage = "سجده اول"
                     )
                 }
@@ -122,43 +141,47 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
             }
             6 -> {
-                imageViewAnimatedChange(
-                    newImage = R.drawable.rakat_shomar_pices_3_2,
-                    rokaatMessage = "رکعت سوم",
-                    sejdeMessage = "سجده دوم"
-                )
-
-            }
-            7 -> {
-                if (Data.rokaat == 3) {
+                if (Data.rokaat==3){
                     step = 10
                     imageViewAnimatedChange(
-                        newImage = R.drawable.rakat_shomar_end,
-                        rokaatMessage = "",
+                        newImage = R.drawable.ic_namaz,
+                        rakaatMessage = "سلام و تشهد",
                         sejdeMessage = ""
                     )
-                } else {
+                }else{
                     imageViewAnimatedChange(
-                        newImage = R.drawable.rakat_shomar_pices_4_1,
-                        rokaatMessage = "رکعت چهارم",
-                        sejdeMessage = "سجده اول"
+                        newImage = R.drawable.rakat_shomar_pices_3_2,
+                        rakaatMessage = "رکعت سوم",
+                        sejdeMessage = "سجده دوم"
                     )
                 }
 
 
             }
-            8 -> {
+            7 -> {
                 imageViewAnimatedChange(
+                    newImage = R.drawable.rakat_shomar_pices_4_1,
+                    rakaatMessage = "رکعت چهارم",
+                    sejdeMessage = "سجده اول"
+                )
+            }
+            8 -> {
+            /*    imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_4_2,
                     rokaatMessage = "رکعت چهارم",
                     sejdeMessage = "سجده دوم"
+                )*/
+                imageViewAnimatedChange(
+                    newImage = R.drawable.ic_namaz,
+                    rakaatMessage = "سلام و تشهد",
+                    sejdeMessage = ""
                 )
 
             }
             9 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_end,
-                    rokaatMessage = "",
+                    rakaatMessage = "",
                     sejdeMessage = ""
                 )
             }
@@ -172,7 +195,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             sensListener, mSensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
-        step = 0
+//        step = 0
         setStep(step)
         super.onResume()
     }
@@ -184,14 +207,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private fun imageViewAnimatedChange(
         newImage: Int,
-        rokaatMessage: String,
+        rakaatMessage: String,
         sejdeMessage: String
     ) {
         val animOut: Animation = AnimationUtils.loadAnimation(context, R.anim.left_to_right_out)
         val animIn: Animation = AnimationUtils.loadAnimation(context, R.anim.left_to_right_in)
         mediaPlayer.start()
-        txt_sejde.text = sejdeMessage
-        txt_rokaat.text = rokaatMessage
+        binding.txtSejde.text = sejdeMessage
+        binding.txtRokaat.text = rakaatMessage
         animOut.setAnimationListener(object : AnimationListener {
             override fun onAnimationStart(animation: Animation) {}
             override fun onAnimationRepeat(animation: Animation) {}

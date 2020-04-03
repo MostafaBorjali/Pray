@@ -41,12 +41,12 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
         width = size.x.toFloat()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, getLayoutResourceId())
-        oncreate()
+        oncreate(savedInstanceState)
         supportActionBar?.hide()
     }
 
     protected abstract fun getLayoutResourceId(): Int
-    protected abstract fun oncreate()
+    protected abstract fun oncreate(savedInstanceState: Bundle?)
 
     protected fun hideStatusBar() {
         if (Build.VERSION.SDK_INT in 19..20) {
@@ -83,4 +83,5 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
         }
         return super.dispatchTouchEvent(event)
     }
+
 }

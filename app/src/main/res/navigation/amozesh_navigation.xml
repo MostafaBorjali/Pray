@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/amozesh_navigation"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/amozeshFragment">
+
+
+    <fragment
+        android:id="@+id/amozeshFragment"
+        android:name="com.borjali.mostafa.pray.ui.fragment.amozesh.AmozeshFragment"
+        android:label="AmozeshFragment"
+        tools:layout="@layout/fragment_amozesh"/>
+</navigation>

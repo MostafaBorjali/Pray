@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/amozesh_navigation"
         android:icon="@drawable/ic_amoozesh_ahkam"
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/rakaat_shomar_navigation"
         android:icon="@drawable/ic_rakat_shomar"
         android:title="@string/title_dashboard" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/namaz_navigation"
         android:icon="@drawable/ic_namaz"
         android:title="@string/title_notifications" />
 
