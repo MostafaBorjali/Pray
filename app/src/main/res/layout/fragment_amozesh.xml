@@ -31,15 +31,24 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="درحال توسعه ..."
             android:fontFamily="@font/estedad_medium"
-            android:textSize="@dimen/_40sdp"
+            android:text="درحال توسعه ..."
             android:textColor="@color/titleTextColor"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/_40sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_200sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menuAmozesh"
+            app:layout_constraintVertical_bias="0.25"
+            app:srcCompat="@drawable/ic_app_development" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

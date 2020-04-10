@@ -1,6 +1,24 @@
 <resources>
-    <string name="app_name">نماز</string>
+    <string name="app_name">انواع نماز و رکعت شمار</string>
+
     <string name="title_home">آموزش</string>
     <string name="title_dashboard">رکعت شمار</string>
     <string name="title_notifications">نمازها</string>
+    <string name="salame_namaz">تشهد و سلام</string>
+    <string name="rakat_aval">رکعت اول</string>
+    <string name="sajde_aval">سجده اول</string>
+    <string name="sajde_dowom">سجده دوم</string>
+    <string name="rakatDowom">رکعت دوم </string>
+    <string name="tashhod">تشهد</string>
+    <string name="rakat_sewom">رکعت سوم</string>
+    <string name="rakat_chaharom">رکعت چهارم</string>
+    <string name="asha">اعشاء</string>
+    <string name="maghreb">مغرب</string>
+    <string name="asr">عصر</string>
+    <string name="zohr">ظهر</string>
+    <string name="sobh">صبح</string>
+    <string name="pull_back">pull_back</string>
+    <string name="raw">raw</string>
+    <string name="namaz">نماز</string>
+    <string name="amoozesh">آموزش</string>
 </resources>

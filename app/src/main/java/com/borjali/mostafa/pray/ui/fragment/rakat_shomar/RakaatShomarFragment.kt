@@ -45,14 +45,14 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     private fun initView() {
         Data.position = 10
         val list = ArrayList<String>()
-        list.add("اعشاء")
-        list.add("مغرب")
-        list.add("عصر")
-        list.add("ظهر")
-        list.add("صبح")
+        list.add(getString(R.string.asha))
+        list.add(getString(R.string.maghreb))
+        list.add(getString(R.string.asr))
+        list.add(getString(R.string.zohr))
+        list.add(getString(R.string.sobh))
         adapter = ButtonAdapter(list) { recyclerViewItemClicked() }
         binding.recycelerView.adapter = adapter
-        resID = resources.getIdentifier("pull_back", "raw", context?.packageName)
+        resID = resources.getIdentifier(getString(R.string.pull_back), getString(R.string.raw), context?.packageName)
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
@@ -89,23 +89,23 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
             1 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_1_1,
-                    rakaatMessage = "رکعت اول",
-                    sejdeMessage = "سجده اول"
+                    rakaatMessage = getString(R.string.rakat_aval),
+                    sejdeMessage = getString(R.string.sajde_aval)
                 )
 
             }
             2 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_1_2,
-                    rakaatMessage = "رکعت اول",
-                    sejdeMessage = "سجده دوم"
+                    rakaatMessage = getString(R.string.rakat_aval),
+                    sejdeMessage = getString(R.string.sajde_dowom)
                 )
             }
             3 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_2_1,
-                    rakaatMessage = "رکعت دوم ",
-                    sejdeMessage = "سجده اول"
+                    rakaatMessage = getString(R.string.rakatDowom),
+                    sejdeMessage = getString(R.string.sajde_aval)
                 )
 
             }
@@ -113,7 +113,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 if (Data.rokaat==2){
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_namaz,
-                        rakaatMessage = "سلام و تشهد",
+                        rakaatMessage = getString(R.string.salame_namaz),
                         sejdeMessage = ""
                     )
                     binding.ZekreShomar.visibility = View.VISIBLE
@@ -121,8 +121,8 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 }else{
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_namaz,
-                        rakaatMessage = "رکعت دوم",
-                        sejdeMessage = "تشهد"
+                        rakaatMessage =  getString(R.string.rakatDowom),
+                        sejdeMessage = getString(R.string.tashhod)
                     )
                 }
 
@@ -140,8 +140,8 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_3_1,
-                        rakaatMessage = "رکعت سوم",
-                        sejdeMessage = "سجده اول"
+                        rakaatMessage = getString(R.string.rakat_sewom),
+                        sejdeMessage = getString(R.string.sajde_aval)
                     )
                 }
 
@@ -152,7 +152,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                     step = 10
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_namaz,
-                        rakaatMessage = "سلام و تشهد",
+                        rakaatMessage = getString(R.string.salame_namaz),
                         sejdeMessage = ""
                     )
                     binding.ZekreShomar.visibility = View.VISIBLE
@@ -160,8 +160,8 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 }else{
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_3_2,
-                        rakaatMessage = "رکعت سوم",
-                        sejdeMessage = "سجده دوم"
+                        rakaatMessage = getString(R.string.rakat_sewom),
+                        sejdeMessage = getString(R.string.sajde_dowom)
                     )
                 }
 
@@ -179,8 +179,8 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 }else{
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_4_1,
-                        rakaatMessage = "رکعت چهارم",
-                        sejdeMessage = "سجده اول"
+                        rakaatMessage = getString(R.string.rakat_chaharom),
+                        sejdeMessage = getString(R.string.sajde_aval)
                     )
                 }
 
@@ -188,7 +188,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
             8 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.ic_namaz,
-                    rakaatMessage = "سلام و تشهد",
+                    rakaatMessage = getString(R.string.salame_namaz),
                     sejdeMessage = ""
                 )
                 binding.ZekreShomar.visibility = View.VISIBLE
