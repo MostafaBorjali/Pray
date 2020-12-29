@@ -1,0 +1,61 @@
+package com.borjali.mostafa.pray.presentation.fragment.namaz.mostahabi
+
+import androidx.databinding.ObservableBoolean
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.borjali.mostafa.pray.domain.model.AppResult
+import com.borjali.mostafa.pray.domain.model.Menu
+import com.borjali.mostafa.pray.domain.model.Pray
+import com.borjali.mostafa.pray.domain.repository.MenuRepository
+import com.borjali.mostafa.pray.domain.repository.NamazRepository
+import com.borjali.mostafa.pray.utils.SingleLiveEvent
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
+
+class NamazMostahabiViewModel(private val repository: MenuRepository) :
+    ViewModel() {
+    private val TAG = NamazMostahabiViewModel::class.java.name
+     val listOfNamazMostahabi = MutableLiveData<List<Menu>>()
+    private val showError = SingleLiveEvent<String>()
+    private val showLoading = ObservableBoolean()
+
+    fun getListOfNamazMostahabi(type: Int) {
+        showLoading.set(true)
+        viewModelScope.launch {
+            val result = repository.getListOfMenu(type)
+            showLoading.set(false)
+            when (result) {
+                is AppResult.Success -> {
+                    listOfNamazMostahabi.value = result.successData
+                    showError.value = null
+                }
+                is AppResult.Error -> showError.value = result.error.localizedMessage
+            }
+        }
+    }
+
+    override fun onCleared() {
+        viewModelScope.cancel()
+        super.onCleared()
+    }
+
+
+    /* fun getListOfNamazMostahabi(type: Int) {
+         showLoading.set(true)
+         getNamazMostahabiUseCase.invoke(viewModelScope, type, object : UseCaseResponse<List<Pray>> {
+             override fun onSuccess(result: List<Pray>) {
+                 showLoading.set(false)
+                 listOfNamazMostahabi.value = result
+             }
+
+             override fun onError(error: Throwable) {
+                 showLoading.set(false)
+                 showError.value = error.localizedMessage
+             }
+
+         }
+
+         )
+     }*/
+}

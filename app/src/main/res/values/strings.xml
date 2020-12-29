@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">انواع نماز و رکعت شمار</string>
-
     <string name="title_home">آموزش</string>
     <string name="title_dashboard">رکعت شمار</string>
     <string name="title_notifications">نمازها</string>
@@ -19,6 +18,10 @@
     <string name="sobh">صبح</string>
     <string name="pull_back">pull_back</string>
     <string name="raw">raw</string>
-    <string name="namaz">نماز</string>
+    <string name="namaz">نمازها</string>
     <string name="amoozesh">آموزش</string>
+    <string name="version">ورژن :</string>
+    <string name="payambar">پیامبر (ص)</string>
+    <string name="fa_hadis">هر چیز دارای سیماست، سیمای دین شما نماز است</string>
+    <string name="Ab_hadis">لِکُلِّ شَیءٍ وَجهٌ وَ وَجهُ دینِکم الصَّلاةُ</string>
 </resources>

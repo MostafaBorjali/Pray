@@ -7,14 +7,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".ui.fragment.amozesh.HomeFragment">
+        tools:context=".presentation.fragment.amozesh.HomeFragment">
 
-        <include
-            android:id="@+id/menuNamaz"
-            layout="@layout/toolbar"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_90sdp"
+            android:background="@drawable/top_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/menuNamaz"
+                layout="@layout/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/transparent"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menuNamaz"
+                app:tabBackground="@drawable/tab_layout_selector"
+                app:tabGravity="fill"
+                app:tabIndicatorHeight="0dp"
+                app:tabMaxWidth="0dp"
+                app:tabMode="fixed"
+                app:tabRippleColor="@null"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextAppearance="@style/TabTextAppearance" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <ImageView
             android:id="@+id/imageView2"
@@ -26,31 +63,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menuNamaz" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/estedad_medium"
-            android:text="درحال توسعه ..."
-            android:textColor="@color/titleTextColor"
-            android:textSize="@dimen/_40sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_200sdp"
-            android:scaleType="fitCenter"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menuNamaz"
-            app:layout_constraintVertical_bias="0.25"
-            app:srcCompat="@drawable/ic_app_development" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

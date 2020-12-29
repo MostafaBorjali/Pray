@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp">
 
-    <com.borjali.mostafa.pray.utils.TabBarMotion
+    <com.borjali.mostafa.pray.utils.tabbar.TabBarMotion
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,22 +38,22 @@
                 <ImageView
                         android:layout_width="@dimen/_25sdp"
                         android:scaleType="fitXY"
-                    android:tint="@color/white"
                     app:srcCompat="@drawable/ic_amoozesh_ahkam"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_25sdp"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    app:tint="@color/white" />
             </FrameLayout>
 
 
             <ImageView android:layout_width="@dimen/_20sdp"
-                        android:tint="@color/white"
-                       app:srcCompat="@drawable/ic_amoozesh_ahkam"
+                app:srcCompat="@drawable/ic_amoozesh_ahkam"
                        android:layout_gravity="center|bottom"
                        android:id="@+id/payment_icone"
                        android:layout_marginBottom="@dimen/_10sdp"
                        android:layout_height="@dimen/_20sdp"
-                tools:ignore="VectorDrawableCompat" />
+                tools:ignore="VectorDrawableCompat"
+                app:tint="@color/white" />
 
             <TextView android:layout_width="match_parent"
                       android:layout_gravity="bottom"
@@ -82,21 +82,21 @@
                 <ImageView
                         android:layout_width="@dimen/_25sdp"
                         android:scaleType="fitXY"
-                    android:tint="@color/white"
                     app:srcCompat="@drawable/ic_rakat_shomar"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_25sdp"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    app:tint="@color/white" />
             </FrameLayout>
 
             <ImageView android:layout_width="@dimen/_20sdp"
                        android:id="@+id/home_icon"
                        android:layout_gravity="center|bottom"
                        android:layout_marginBottom="@dimen/_10sdp"
-                android:tint="@color/white"
                 app:srcCompat="@drawable/ic_rakat_shomar"
                        android:layout_height="@dimen/_20sdp"
-                tools:ignore="VectorDrawableCompat" />
+                tools:ignore="VectorDrawableCompat"
+                app:tint="@color/white" />
 
             <TextView android:layout_width="match_parent"
                       android:layout_gravity="bottom"
@@ -125,11 +125,11 @@
                 <ImageView
                         android:layout_width="@dimen/_25sdp"
                         android:scaleType="fitXY"
-                    android:tint="@color/white"
-                        app:srcCompat="@drawable/ic_namaz"
+                    app:srcCompat="@drawable/ic_namaz"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_25sdp"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    app:tint="@color/white" />
             </FrameLayout>
 
             <ImageView android:layout_width="@dimen/_20sdp"
@@ -137,9 +137,9 @@
                        android:layout_gravity="center|bottom"
                        android:layout_marginBottom="@dimen/_10sdp"
                        app:srcCompat="@drawable/ic_namaz"
-                android:tint="@color/white"
-                       android:layout_height="@dimen/_20sdp"
-                tools:ignore="VectorDrawableCompat" />
+                android:layout_height="@dimen/_20sdp"
+                tools:ignore="VectorDrawableCompat"
+                app:tint="@color/white" />
 
             <TextView android:layout_width="match_parent"
                       android:layout_gravity="bottom"

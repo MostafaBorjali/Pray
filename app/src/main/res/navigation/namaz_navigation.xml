@@ -8,12 +8,17 @@
 
     <fragment
         android:id="@+id/namazFragment"
-        android:name="com.borjali.mostafa.pray.ui.fragment.namaz.NamazFragment"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.namaz.NamazFragment"
         android:label="NamazFragment"
         tools:layout="@layout/fragment_namaz"/>
     <fragment
         android:id="@+id/aboutFragment2"
-        android:name="com.borjali.mostafa.pray.ui.fragment.about.AboutFragment"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.about.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
+    <fragment
+        android:id="@+id/namazContentFragment"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.namaz.content.NamazContentFragment"
+        android:label="namaz_content_fragment"
+        tools:layout="@layout/namaz_content_fragment" />
 </navigation>

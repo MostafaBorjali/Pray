@@ -9,12 +9,12 @@
 
     <fragment
         android:id="@+id/amozeshFragment"
-        android:name="com.borjali.mostafa.pray.ui.fragment.amozesh.AmozeshFragment"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.amozesh.AmozeshFragment"
         android:label="AmozeshFragment"
         tools:layout="@layout/fragment_amozesh"/>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.borjali.mostafa.pray.ui.fragment.about.AboutFragment"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.about.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
 </navigation>

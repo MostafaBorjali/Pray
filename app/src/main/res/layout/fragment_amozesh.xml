@@ -6,11 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".ui.fragment.amozesh.HomeFragment">
+        tools:context=".presentation.fragment.amozesh.HomeFragment">
 
         <include
             android:id="@+id/menuAmozesh"
             layout="@layout/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
