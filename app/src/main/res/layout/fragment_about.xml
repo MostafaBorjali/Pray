@@ -41,7 +41,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:fontFamily="@font/estedad_medium"
+            android:fontFamily="@font/iransans_medium"
             android:text="@string/Ab_hadis"
             android:textColor="@color/titleTextColor"
             android:textSize="@dimen/_20sdp"
@@ -67,7 +67,7 @@
             android:id="@+id/textView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/estedad_medium"
+            android:fontFamily="@font/iransans_light"
             android:gravity="right"
             android:text="@string/fa_hadis"
             android:textColor="@color/titleTextColor"
@@ -76,26 +76,33 @@
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/textView3"
+        <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/estedad_medium"
-            android:textColor="@color/titleTextColor"
-            android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:scrollbars="vertical"
+                android:fontFamily="@font/iransans_medium"
+                android:textColor="@color/titleTextColor"
+                android:textSize="@dimen/_10sdp"
+                android:lineSpacingExtra="@dimen/_5sdp"
+                />
+        </ScrollView>
+
 
         <TextView
             android:id="@+id/textView4"
@@ -103,6 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
+            android:fontFamily="@font/iransans_light"
             android:text="@string/payambar"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -113,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:fontFamily="@font/estedad_medium"
+            android:fontFamily="@font/iransans_medium"
             android:text="انواع نماز ها و رکعت شمار"
             android:textColor="@color/titleTextColor"
             android:textSize="@dimen/_12sdp"
@@ -130,6 +138,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:fontFamily="@font/iransans_light"
             android:text="@string/version"
             android:textColor="@color/orang"
             android:textStyle="bold"
@@ -140,10 +149,9 @@
             android:id="@+id/txtVersionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/iransans_medium"
             android:textColor="@color/orang"
-            android:fontFamily="@font/estedad_medium"
             app:layout_constraintBottom_toBottomOf="@+id/txtAthour"
             app:layout_constraintEnd_toStartOf="@+id/txtAthour"
             app:layout_constraintTop_toTopOf="@+id/txtAthour" />

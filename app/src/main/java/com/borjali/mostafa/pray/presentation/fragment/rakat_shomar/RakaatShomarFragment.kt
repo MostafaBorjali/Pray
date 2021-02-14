@@ -10,17 +10,21 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.media.MediaPlayer
+import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.FragmentRakaatShomarBinding
-
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
+import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment
 import com.borjali.mostafa.pray.utils.Data
 import kotlinx.android.synthetic.main.fragment_rakaat_shomar.*
+import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 
 class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
@@ -30,6 +34,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     private lateinit var mSensor: Sensor
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var adapter: ButtonAdapter
+    private val rakaatShomarViewModel by viewModel<RakaatShomarViewModel>()
 
 
     override fun getLayoutResourceId() = R.layout.fragment_rakaat_shomar
@@ -52,11 +57,36 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
         list.add(getString(R.string.sobh))
         adapter = ButtonAdapter(list) { recyclerViewItemClicked() }
         binding.recycelerView.adapter = adapter
-        resID = resources.getIdentifier(getString(R.string.pull_back), getString(R.string.raw), context?.packageName)
+        resID = resources.getIdentifier(
+            getString(R.string.pull_back),
+            getString(R.string.raw),
+            context?.packageName
+        )
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
-        binding.ZekreShomar.setOnClickListener { findNavController().navigate(R.id.zekrShomarFragment) }
+        binding.tasbihat.setOnClickListener { findNavController().navigate(R.id.zekrShomarFragment) }
+        binding.taaghibat.setOnClickListener {
+            rakaatShomarViewModel.getListOfNamaz(Data.typeOFPray)
+            Timber.e("clicked")
+        }
+        viewModelOperation()
+    }
+
+    private fun viewModelOperation() {
+        with(rakaatShomarViewModel) {
+            listOfTaaghibat.observeForever {
+                Timber.e(taaghibat.toString())
+                if (it!!.isNotEmpty() && it.size == 1) {
+                    val args = Bundle()
+                    args.putParcelable(NamazVajebFragment.ARG_PRAY, it[0])
+                    findNavController().navigate(R.id.contentTaghibat, args)
+                } else if (it.isNotEmpty()) {
+                    Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG).show()
+                }
+            }
+            
+        }
     }
 
     private fun recyclerViewItemClicked() {
@@ -79,7 +109,8 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     private fun setStep(currentState: Int) {
         when (currentState) {
             0 -> {
-                binding.ZekreShomar.visibility = View.GONE
+                binding.tasbihat.visibility = View.GONE
+                binding.taaghibat.visibility = View.GONE
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_start,
                     rakaatMessage = "",
@@ -110,32 +141,34 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
             }
             4 -> {
-                if (Data.rokaat==2){
+                if (Data.numberOFRokaat == 2) {
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_namaz,
                         rakaatMessage = getString(R.string.salame_namaz),
                         sejdeMessage = ""
                     )
-                    binding.ZekreShomar.visibility = View.VISIBLE
+                    binding.tasbihat.visibility = View.VISIBLE
+                    binding.taaghibat.visibility = View.VISIBLE
 
-                }else{
+                } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_namaz,
-                        rakaatMessage =  getString(R.string.rakatDowom),
+                        rakaatMessage = getString(R.string.rakatDowom),
                         sejdeMessage = getString(R.string.tashhod)
                     )
                 }
 
             }
             5 -> {
-                if (Data.rokaat == 2) {
+                if (Data.numberOFRokaat == 2) {
                     step = 10
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_end,
                         rakaatMessage = "",
                         sejdeMessage = ""
                     )
-                    binding.ZekreShomar.visibility = View.GONE
+                    binding.tasbihat.visibility = View.GONE
+                    binding.taaghibat.visibility = View.GONE
 
                 } else {
                     imageViewAnimatedChange(
@@ -148,16 +181,17 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
             }
             6 -> {
-                if (Data.rokaat==3){
+                if (Data.numberOFRokaat == 3) {
                     step = 10
                     imageViewAnimatedChange(
                         newImage = R.drawable.ic_namaz,
                         rakaatMessage = getString(R.string.salame_namaz),
                         sejdeMessage = ""
                     )
-                    binding.ZekreShomar.visibility = View.VISIBLE
+                    binding.tasbihat.visibility = View.VISIBLE
+                    binding.taaghibat.visibility = View.VISIBLE
 
-                }else{
+                } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_3_2,
                         rakaatMessage = getString(R.string.rakat_sewom),
@@ -168,15 +202,16 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
             }
             7 -> {
-                if (Data.rokaat==3){
+                if (Data.numberOFRokaat == 3) {
                     step = 10
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_end,
                         rakaatMessage = "",
                         sejdeMessage = ""
                     )
-                    binding.ZekreShomar.visibility = View.GONE
-                }else{
+                    binding.tasbihat.visibility = View.GONE
+                    binding.taaghibat.visibility = View.GONE
+                } else {
                     imageViewAnimatedChange(
                         newImage = R.drawable.rakat_shomar_pices_4_1,
                         rakaatMessage = getString(R.string.rakat_chaharom),
@@ -191,18 +226,23 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                     rakaatMessage = getString(R.string.salame_namaz),
                     sejdeMessage = ""
                 )
-                binding.ZekreShomar.visibility = View.VISIBLE
+                binding.tasbihat.visibility = View.VISIBLE
+                if (Data.typeOFPray != 0) {
+                    binding.taaghibat.visibility = View.VISIBLE
+                }
 
             }
             9 -> {
-                binding.ZekreShomar.visibility = View.GONE
+                binding.tasbihat.visibility = View.GONE
+                binding.taaghibat.visibility = View.GONE
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_end,
                     rakaatMessage = "",
                     sejdeMessage = ""
                 )
             }
-            else -> {}
+            else -> {
+            }
         }
     }
 
@@ -212,7 +252,6 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
             sensListener, mSensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
-//        step = 0
         setStep(step)
         super.onResume()
     }

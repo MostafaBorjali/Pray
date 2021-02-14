@@ -16,4 +16,8 @@
         android:name="com.borjali.mostafa.pray.presentation.fragment.zekrshomar.ZekrShomarFragment"
         android:label="ZekrShomarFragment"
         tools:layout="@layout/fragment_zekr_shomar"/>
+    <fragment
+        android:id="@+id/contentTaghibat"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.namaz.content.NamazContentFragment"
+        android:label="NamazContentFragment" />
 </navigation>

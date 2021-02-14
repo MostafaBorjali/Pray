@@ -14,9 +14,11 @@ class AmozeshFragment : BaseFragment<FragmentAmozeshBinding>() {
     }
 
     private fun menuHandel() {
-        binding.menuAmozesh.btnMenuBack.visibility = View.GONE
-        binding.menuAmozesh.btnInfo.visibility = View.VISIBLE
-        binding.menuAmozesh.txtTitleMenu.text = getString(R.string.amoozesh)
-        binding.menuAmozesh.btnInfo.setOnClickListener { findNavController().navigate(R.id.aboutFragment) }
+        with(binding.menuAmozesh){
+            btnMenuBack.visibility = View.GONE
+            btnInfo.visibility = View.GONE
+            txtTitleMenu.text = getString(R.string.amoozesh)
+            btnInfo.setOnClickListener { findNavController().navigate(R.id.aboutFragment) }
+        }
     }
 }

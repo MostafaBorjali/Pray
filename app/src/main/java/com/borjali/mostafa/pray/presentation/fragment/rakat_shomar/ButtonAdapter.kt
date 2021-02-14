@@ -38,10 +38,29 @@ class ButtonAdapter(list: ArrayList<String>, private var onclick: ((Int) -> Unit
             holder.binding.btnBackground.setOnClickListener { _ ->
                 onclick?.let { click ->
                     Data.position = position
-                    when(position){
-                        4 ->{ Data.rokaat = 2 }
-                        1 ->{ Data.rokaat = 3 }
-                        0,2,3->{ Data.rokaat = 4 }
+                    when (position) {
+                        0 ->{
+                            Data.numberOFRokaat = 4
+                            Data.typeOFPray = 25
+                        }
+                        1 ->{
+                            Data.numberOFRokaat = 3
+                            Data.typeOFPray = 24
+                        }
+                        2 ->{
+                            Data.numberOFRokaat = 4
+                            Data.typeOFPray = 23
+
+                        }
+                        3 -> {
+                            Data.numberOFRokaat = 4
+                            Data.typeOFPray = 22
+
+                        }
+                        4 -> {
+                            Data.numberOFRokaat = 2
+                            Data.typeOFPray = 21
+                        }
                     }
                     click(position)
                 }

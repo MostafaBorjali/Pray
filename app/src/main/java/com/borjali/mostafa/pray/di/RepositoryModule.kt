@@ -10,15 +10,16 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    fun provideNamazRepository(dao: PrayDao): NamazRepository {
-        return NamazRepositoryImpl(dao)
+    fun provideNamazRepository(namazDao: PrayDao,menuDao: MenuDao): NamazRepository {
+        return NamazRepositoryImpl(namazDao,menuDao)
     }
 
-    fun provideMenuRepository(dao: MenuDao): MenuRepository {
+    single { provideNamazRepository(namazDao = get(),menuDao = get()) }
+
+    /*    fun provideMenuRepository(dao: MenuDao): MenuRepository {
         return MenuRepositoryImpl(dao)
     }
 
-    single { provideNamazRepository(get()) }
-    single { provideMenuRepository(get()) }
+    single { provideMenuRepository(get()) }*/
 
 }

@@ -4,11 +4,12 @@ import android.widget.LinearLayout
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.ItemListMenuBinding
 import com.borjali.mostafa.pray.domain.model.Menu
+import com.borjali.mostafa.pray.domain.model.Pray
 import com.borjali.mostafa.pray.presentation.base.BaseAdapter
 
 
-class MenuMostahabiAdapter(list: ArrayList<Menu>, private var onclick: ((Int,Int) -> Unit)?) :
-    BaseAdapter<Menu, ItemListMenuBinding>(list) {
+class NamazAdapter(list: ArrayList<Pray>, private var onclick: ((Int, Int) -> Unit)?) :
+    BaseAdapter<Pray, ItemListMenuBinding>(list) {
 
     override fun getLayoutResourceId(): Int {
         return R.layout.item_list_menu
@@ -17,13 +18,7 @@ class MenuMostahabiAdapter(list: ArrayList<Menu>, private var onclick: ((Int,Int
     override fun onBindViewHolder(holder: ViewHolder<ItemListMenuBinding>, position: Int) {
 
         list?.let {
-            holder.binding.txtTitleGroup.text = list!![position]?.groupTitle
-           /* if (list!![position]?.type == 1) {
-                holder.binding.layoutItem.layoutParams.width =
-                    LinearLayout.LayoutParams.MATCH_PARENT
-                holder.binding.layoutItem.layoutParams.height =
-                    binding.root.resources.getDimensionPixelSize(R.dimen._50sdp)
-            }*/
+            holder.binding.txtTitleGroup.text = list!![position]?.title
         }
         holder.binding.layoutItem.setOnClickListener {
             onclick?.let { click ->

@@ -13,6 +13,6 @@
     <item name="android:textColor">@color/TextColor</item>
     <item name="android:textStyle">bold</item>
     <item name="android:gravity">center_vertical</item>
-    <item name="android:fontFamily">@font/kofi_ahram</item>
+    <item name="android:fontFamily">@font/iransans_medium</item>
     </style>
 </resources>

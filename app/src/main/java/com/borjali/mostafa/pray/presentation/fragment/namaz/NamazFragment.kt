@@ -84,7 +84,7 @@ class NamazFragment : BaseFragment<FragmentNamazBinding>() {
     private fun menuHandel() {
         with(binding.menuNamaz) {
             btnMenuBack.visibility = View.GONE
-            btnInfo.visibility = View.VISIBLE
+            btnInfo.visibility = View.GONE
             txtTitleMenu.text = getString(R.string.namaz)
             btnInfo.setOnClickListener { findNavController().navigate(R.id.aboutFragment2) }
         }

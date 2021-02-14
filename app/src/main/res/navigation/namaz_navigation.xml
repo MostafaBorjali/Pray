@@ -21,4 +21,8 @@
         android:name="com.borjali.mostafa.pray.presentation.fragment.namaz.content.NamazContentFragment"
         android:label="namaz_content_fragment"
         tools:layout="@layout/namaz_content_fragment" />
+    <fragment
+        android:id="@+id/sublistFragment"
+        android:name="com.borjali.mostafa.pray.presentation.fragment.namaz.mostahabi.sublist.SublistFragment"
+        android:label="SublistFragment" />
 </navigation>

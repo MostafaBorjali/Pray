@@ -7,17 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.borjali.mostafa.pray.domain.model.AppResult
 import com.borjali.mostafa.pray.domain.model.Menu
 import com.borjali.mostafa.pray.domain.model.Pray
-import com.borjali.mostafa.pray.domain.repository.MenuRepository
 import com.borjali.mostafa.pray.domain.repository.NamazRepository
 import com.borjali.mostafa.pray.presentation.fragment.namaz.mostahabi.NamazMostahabiViewModel
 import com.borjali.mostafa.pray.utils.SingleLiveEvent
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class NamazVajebViewModel(
-    private val repository: MenuRepository,
-    private val prayRepository: NamazRepository
-) : ViewModel() {
+class NamazVajebViewModel(private val prayRepository: NamazRepository) : ViewModel() {
     private val TAG = NamazMostahabiViewModel::class.java.name
     val listOfNamazMenu = MutableLiveData<List<Menu>>()
     val listOfNamazVajeb = MutableLiveData<List<Pray>>()
@@ -27,7 +23,7 @@ class NamazVajebViewModel(
     fun getListOfMenuNamazVajeb(type: Int) {
         showLoading.set(true)
         viewModelScope.launch {
-            val result = repository.getListOfMenu(type)
+            val result = prayRepository.getListOfMenu(type)
             showLoading.set(false)
             when (result) {
                 is AppResult.Success -> {
@@ -38,14 +34,14 @@ class NamazVajebViewModel(
             }
         }
     }
-    fun getListOfNamaz(groupId: Int){
+
+    fun getListOfNamaz(groupId: Int) {
         viewModelScope.launch {
-            val result = prayRepository.getListOfNamaz(groupId)
-            when(result){
-                is AppResult.Success ->{
+            when (val result = prayRepository.getListOfNamaz(groupId)) {
+                is AppResult.Success -> {
                     listOfNamazVajeb.value = result.successData
                 }
-                is AppResult.Error ->{
+                is AppResult.Error -> {
                     showError.value = result.error.localizedMessage
                 }
             }

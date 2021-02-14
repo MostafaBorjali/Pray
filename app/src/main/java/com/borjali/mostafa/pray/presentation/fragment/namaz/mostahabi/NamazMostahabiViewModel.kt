@@ -13,24 +13,37 @@ import com.borjali.mostafa.pray.utils.SingleLiveEvent
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class NamazMostahabiViewModel(private val repository: MenuRepository) :
+class NamazMostahabiViewModel(private val prayRepository: NamazRepository) :
     ViewModel() {
     private val TAG = NamazMostahabiViewModel::class.java.name
-     val listOfNamazMostahabi = MutableLiveData<List<Menu>>()
+     val listOfMenuMostahabi = MutableLiveData<List<Menu>>()
+     val listOfNamazMostahabi = MutableLiveData<List<Pray>>()
     private val showError = SingleLiveEvent<String>()
     private val showLoading = ObservableBoolean()
 
     fun getListOfNamazMostahabi(type: Int) {
         showLoading.set(true)
         viewModelScope.launch {
-            val result = repository.getListOfMenu(type)
+            val result = prayRepository.getListOfMenu(type)
             showLoading.set(false)
             when (result) {
                 is AppResult.Success -> {
-                    listOfNamazMostahabi.value = result.successData
+                    listOfMenuMostahabi.value = result.successData
                     showError.value = null
                 }
                 is AppResult.Error -> showError.value = result.error.localizedMessage
+            }
+        }
+    }
+    fun getListOfNamaz(groupId: Int){
+        viewModelScope.launch {
+            when(val result = prayRepository.getListOfNamaz(groupId)){
+                is AppResult.Success ->{
+                    listOfNamazMostahabi.value = result.successData
+                }
+                is AppResult.Error ->{
+                    showError.value = result.error.localizedMessage
+                }
             }
         }
     }

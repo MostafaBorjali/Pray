@@ -87,29 +87,53 @@
             app:layout_constraintTop_toTopOf="@+id/guideline"
             tools:listitem="@layout/item_recycler_time_namaz"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/ZekreShomar"
-            android:layout_width="@dimen/_140sdp"
-            android:layout_height="@dimen/_50sdp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:text="تسبیحات "
-            android:fontFamily="@font/estedad_medium"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold"
-            app:backgroundTint="@android:color/holo_orange_light"
-            app:cornerRadius="@dimen/_10sdp"
-            app:elevation="6dp"
-            app:icon="@drawable/ic_rosary"
-            app:iconGravity="textStart"
-            app:iconSize="@dimen/_30sdp"
-            app:iconTint="@color/design_default_color_on_secondary"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            app:layout_constraintTop_toTopOf="@+id/guideline3">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tasbihat"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/estedad_medium"
+                android:text="@string/tasbihat"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                app:backgroundTint="@android:color/holo_orange_light"
+                app:cornerRadius="@dimen/_10sdp"
+                app:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/taaghibat"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/taaghibat"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/estedad_medium"
+                android:text="@string/taaghibat"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/colorAccent"
+                app:cornerRadius="@dimen/_10sdp"
+                app:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

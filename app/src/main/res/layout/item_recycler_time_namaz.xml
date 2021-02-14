@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:fontFamily="@font/kofi_ahram"
+                android:fontFamily="@font/iransans_medium"
                 android:textStyle="bold"
                 android:textSize="@dimen/_15sdp"
                  />

@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/amozesh_navigation"
-        android:icon="@drawable/ic_amoozesh_ahkam"
-        android:title="@string/title_home" />
+        android:icon="@drawable/ic_info"
+        android:title="@string/title_about" />
 
     <item
         android:id="@+id/rakaat_shomar_navigation"

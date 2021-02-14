@@ -16,9 +16,7 @@ import kotlinx.android.parcel.Parcelize
 data class Pray(
     @PrimaryKey
     val id: Int,
-    val type: Int,
     val groupId: Int,
-    val groupTitle: String?,
     val title: String?,
     val content: String?
-):Parcelable
+) : Parcelable
