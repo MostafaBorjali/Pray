@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class NamazVajebViewModel(private val prayRepository: NamazRepository) : ViewModel() {
     private val TAG = NamazMostahabiViewModel::class.java.name
-    val listOfNamazMenu = MutableLiveData<List<Menu>>()
+    val listOfNamazMenu = MutableLiveData<List<Menu>?>()
     val listOfNamazVajeb = MutableLiveData<List<Pray>>()
     private val showError = SingleLiveEvent<String>()
     private val showLoading = ObservableBoolean()
