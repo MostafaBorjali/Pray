@@ -8,6 +8,7 @@ import com.borjali.mostafa.pray.databinding.SublistFragmentBinding
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.adapter.NamazAdapter
 import com.borjali.mostafa.pray.presentation.fragment.namaz.mostahabi.NamazMostahabiFragment.PassDataToFragMent.LISTOFPRAY
+import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment.Companion.ARG_POSITION
 import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment.Companion.ARG_PRAY
 
 class SublistFragment : BaseFragment<SublistFragmentBinding>() {
@@ -15,10 +16,11 @@ class SublistFragment : BaseFragment<SublistFragmentBinding>() {
 
     override fun getLayoutResourceId() = R.layout.sublist_fragment
     override fun oncreate() {
-        if (LISTOFPRAY.isNotEmpty() && LISTOFPRAY.size > 0) {
-            binding.recycelerViewSublist.adapter = NamazAdapter(LISTOFPRAY) { _, position ->
+        if (LISTOFPRAY!!.isNotEmpty() && LISTOFPRAY!!.size > 0) {
+            binding.recycelerViewSublist.adapter = NamazAdapter(LISTOFPRAY!!) { _, position ->
                 val arg = Bundle()
-                arg.putParcelable(ARG_PRAY, LISTOFPRAY[position])
+                arg.putParcelable(ARG_PRAY, LISTOFPRAY!![position])
+                arg.putInt(ARG_POSITION, position)
                 findNavController().navigate(R.id.namazContentFragment, arg)
             }
         }
@@ -29,7 +31,7 @@ class SublistFragment : BaseFragment<SublistFragmentBinding>() {
     private fun menuHandel() {
         with(binding.subListMenu) {
             btnInfo.visibility = View.GONE
-            txtTitleMenu.text = LISTOFPRAY[0].title
+            txtTitleMenu.text = LISTOFPRAY!![0].title
             txtTitleMenu.textSize = 18f
             btnMenuBack.setOnClickListener {
                 findNavController().popBackStack()

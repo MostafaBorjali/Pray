@@ -1,6 +1,7 @@
 package com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.R
@@ -33,6 +34,7 @@ class NamazVajebFragment : BaseFragment<NamazTabFragmentBinding>() {
                 if (namazList.isNotEmpty() && namazList.size == 1) {
                     val args = Bundle()
                     args.putParcelable(ARG_PRAY, namazList[0])
+                    args.putInt(ARG_POSITION, 0)
                     findNavController().navigate(R.id.namazContentFragment, args)
                 } else if (namazList.isNotEmpty()) {
                     Toast.makeText(context, namazList.size.toString(), Toast.LENGTH_LONG).show()
@@ -43,6 +45,7 @@ class NamazVajebFragment : BaseFragment<NamazTabFragmentBinding>() {
 
     companion object {
         const val ARG_PRAY = "pray"
+        const val ARG_POSITION = "position"
     }
 
 

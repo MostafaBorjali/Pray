@@ -36,6 +36,7 @@ class NamazMostahabiFragment : BaseFragment<NamazTabFragmentBinding>() {
                     args.putParcelable(ARG_PRAY, namazList[0])
                     findNavController().navigate(R.id.namazContentFragment, args)
                 } else if (namazList.isNotEmpty()) {
+
                     LISTOFPRAY =namazList as ArrayList<Pray>
                     findNavController().navigate(R.id.sublistFragment, args)
                 }
@@ -43,7 +44,8 @@ class NamazMostahabiFragment : BaseFragment<NamazTabFragmentBinding>() {
         }
     }
     companion object PassDataToFragMent{
-       lateinit  var LISTOFPRAY: ArrayList<Pray>
+         var LISTOFPRAY: ArrayList<Pray>? = null
+
     }
 }
 
