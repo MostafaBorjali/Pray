@@ -30,7 +30,7 @@
             app:layout_constraintTop_toBottomOf="@+id/namazContentMenu" />
 
 
-        <ScrollView
+        <!--   <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -40,45 +40,50 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/namazContentMenu">
-
-            <TextView
-                android:id="@+id/txtContentNamaz"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:clickable="false"
-                android:fontFamily="@font/iransans_medium"
-                android:gravity="right"
-                android:lineSpacingExtra="@dimen/_10sdp"
-                android:scrollbars="vertical" />
-        </ScrollView>
+        </ScrollView>-->
+        <TextView
+            android:id="@+id/txtContentNamaz"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="false"
+            android:fontFamily="@font/iransans_medium"
+            android:gravity="right"
+            android:lineSpacingExtra="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_8sdp"
+            android:paddingRight="@dimen/_12sdp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namazContentMenu" />
 
         <ImageButton
             android:id="@+id/nextPrayButton"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_100sdp"
-            android:paddingRight="@dimen/_4sdp"
-            android:paddingLeft="@dimen/_4sdp"
-            android:scaleType="fitCenter"
             android:alpha="0.5"
             android:background="@color/transparent"
-            app:srcCompat="@drawable/ic_right_arrow"
+            android:paddingLeft="@dimen/_4sdp"
+            android:paddingRight="@dimen/_4sdp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/namazContentMenu" />
+            app:layout_constraintTop_toBottomOf="@+id/namazContentMenu"
+            app:srcCompat="@drawable/ic_right_arrow" />
 
         <ImageButton
             android:id="@+id/pervisionPrayButton"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_100sdp"
             android:alpha="0.5"
+            android:background="@color/transparent"
             android:paddingLeft="@dimen/_4sdp"
             android:paddingRight="@dimen/_4sdp"
             android:rotation="180"
             android:scaleType="fitCenter"
-            android:background="@color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/namazContentMenu"

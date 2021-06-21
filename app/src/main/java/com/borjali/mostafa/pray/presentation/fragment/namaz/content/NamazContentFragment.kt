@@ -1,6 +1,7 @@
 package com.borjali.mostafa.pray.presentation.fragment.namaz.content
 
 import android.annotation.SuppressLint
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.core.text.HtmlCompat
 import androidx.core.text.toSpanned
@@ -38,23 +39,7 @@ class NamazContentFragment : BaseFragment<NamazContentFragmentBinding>() {
         onClickScreen()
         binding.nextPrayButton.setOnClickListener { swipeLeft() }
         binding.pervisionPrayButton.setOnClickListener { swipeRight() }
-        binding.scrollView2.setOnTouchListener(object :
-            OnSwipeTouchListener(binding.scrollView2.context) {
-            override fun onSwipeRight() {
-                swipeRight()
-                super.onSwipeRight()
-            }
-
-            override fun onSwipeLeft() {
-                swipeLeft()
-                super.onSwipeLeft()
-            }
-
-            override fun onClick() {
-                onClickScreen()
-                super.onClick()
-            }
-        })
+        binding.txtContentNamaz.movementMethod = ScrollingMovementMethod()
         binding.txtContentNamaz.setOnTouchListener(object :
             OnSwipeTouchListener(binding.txtContentNamaz.context) {
             override fun onSwipeRight() {
@@ -84,7 +69,7 @@ class NamazContentFragment : BaseFragment<NamazContentFragmentBinding>() {
     }
 
     private fun swipeLeft() {
-        if (!LISTOFPRAY.isNullOrEmpty() && position <= LISTOFPRAY!!.size) {
+        if (!LISTOFPRAY.isNullOrEmpty() && position < (LISTOFPRAY!!.size-1)) {
             position++
             binding.txtContentNamaz.setTextAnimation(
                 HtmlCompat.fromHtml(
