@@ -1,6 +1,7 @@
 package com.borjali.mostafa.pray.presentation.activity
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -18,8 +19,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun oncreate(savedInstanceState: Bundle?) {
         if (savedInstanceState==null){
             setupBottomNavigationBar()
-            binding.navView.selectedItemId = R.id.rakaat_shomar_navigation
+            binding.navView.selectedItemId = R.id.namaz_navigation
         }
+        backHandle()
 
     }
 
@@ -51,10 +53,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
-    override fun onBackPressed() {
-        if (currentNavController?.value?.popBackStack() != true) {
-            finish()
-        }
+    /**
+     * this function new way for behavior back button
+     */
+    private fun backHandle() {
+        onBackPressedDispatcher.addCallback(this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (currentNavController?.value?.popBackStack() != true) {
+                        finish()
+                    }
+                    currentNavController?.value?.popBackStack()
+                }
+            }
+        )
     }
 
 }

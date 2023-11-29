@@ -1,10 +1,9 @@
 package com.borjali.mostafa.pray.domain.model
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
 
 @Entity(
     tableName = "mostahabi",
@@ -12,11 +11,10 @@ import kotlinx.android.parcel.Parcelize
         Index(name = "group", value = ["groupId"])
     ]
 )
-@Parcelize
 data class Pray(
     @PrimaryKey
     val id: Int,
     val groupId: Int,
     val title: String?,
     val content: String?
-) : Parcelable
+) : Serializable

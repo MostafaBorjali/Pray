@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.NamazContentFragmentBinding
 import com.borjali.mostafa.pray.domain.model.Pray
+import com.borjali.mostafa.pray.extention.getSerializableCompat
 import com.borjali.mostafa.pray.extention.setTextAnimation
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.mostahabi.NamazMostahabiFragment.PassDataToFragMent.LISTOFPRAY
@@ -30,7 +31,7 @@ class NamazContentFragment : BaseFragment<NamazContentFragmentBinding>() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initParam() {
-        pray = arguments?.getParcelable(ARG_PRAY)!!
+        pray = arguments?.getSerializableCompat(ARG_PRAY,Pray::class.java)!!
         position = arguments?.getInt(ARG_POSITION)!!
         binding.txtContentNamaz.text = HtmlCompat.fromHtml(
             pray.content.toString(), HtmlCompat.FROM_HTML_MODE_COMPACT

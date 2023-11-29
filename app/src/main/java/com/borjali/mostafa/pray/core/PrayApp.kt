@@ -2,6 +2,7 @@ package com.borjali.mostafa.pray.core
 
 import android.app.Application
 import com.borjali.mostafa.pray.BuildConfig
+
 import com.borjali.mostafa.pray.di.databaseModule
 import com.borjali.mostafa.pray.di.repositoryModule
 import com.borjali.mostafa.pray.di.viewModelModule

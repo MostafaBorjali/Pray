@@ -19,7 +19,7 @@ class SublistFragment : BaseFragment<SublistFragmentBinding>() {
         if (LISTOFPRAY!!.isNotEmpty() && LISTOFPRAY!!.size > 0) {
             binding.recycelerViewSublist.adapter = NamazAdapter(LISTOFPRAY!!) { _, position ->
                 val arg = Bundle()
-                arg.putParcelable(ARG_PRAY, LISTOFPRAY!![position])
+                arg.putSerializable(ARG_PRAY, LISTOFPRAY!![position])
                 arg.putInt(ARG_POSITION, position)
                 findNavController().navigate(R.id.namazContentFragment, arg)
             }

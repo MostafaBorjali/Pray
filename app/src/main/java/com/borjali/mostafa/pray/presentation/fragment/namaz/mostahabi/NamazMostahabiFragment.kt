@@ -24,23 +24,23 @@ class NamazMostahabiFragment : BaseFragment<NamazTabFragmentBinding>() {
     private fun handelViewModelOperation() {
         with(namazMostahabiViewModel) {
             getListOfNamazMostahabi(1)
-            listOfMenuMostahabi.observe(viewLifecycleOwner, {
+            listOfMenuMostahabi.observe(viewLifecycleOwner) {
                 binding.recycelerViewMostahabi.adapter =
                     MenuMostahabiAdapter(it as ArrayList<Menu>) { groupId, _ ->
                         getListOfNamaz(groupId)
                     }
-            })
-            listOfNamazMostahabi.observe(viewLifecycleOwner, { namazList ->
+            }
+            listOfNamazMostahabi.observe(viewLifecycleOwner) { namazList ->
                 val args = Bundle()
                 if (namazList.isNotEmpty() && namazList.size == 1) {
-                    args.putParcelable(ARG_PRAY, namazList[0])
+                    args.putSerializable(ARG_PRAY, namazList[0])
                     findNavController().navigate(R.id.namazContentFragment, args)
                 } else if (namazList.isNotEmpty()) {
 
-                    LISTOFPRAY =namazList as ArrayList<Pray>
+                    LISTOFPRAY = namazList as ArrayList<Pray>
                     findNavController().navigate(R.id.sublistFragment, args)
                 }
-            })
+            }
         }
     }
     companion object PassDataToFragMent{

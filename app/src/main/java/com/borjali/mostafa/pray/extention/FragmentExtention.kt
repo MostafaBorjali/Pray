@@ -2,12 +2,14 @@ package com.borjali.mostafa.pray.extention
 
 import android.content.Context
 import android.os.Build
+import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.text.Spanned
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import java.io.Serializable
 
 fun Fragment.shortVibratePhone() {
     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -61,4 +63,8 @@ fun View.fadInAnimation(duration: Long = 300, completion: (() -> Unit)? = null) 
                 it()
             }
         }
+}
+
+fun <T : Serializable?> Bundle.getSerializableCompat(key: String, clazz: Class<T>): T {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) getSerializable(key, clazz)!! else (getSerializable(key) as T)
 }

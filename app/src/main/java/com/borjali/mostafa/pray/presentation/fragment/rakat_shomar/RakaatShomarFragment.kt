@@ -22,7 +22,6 @@ import com.borjali.mostafa.pray.databinding.FragmentRakaatShomarBinding
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment
 import com.borjali.mostafa.pray.utils.Data
-import kotlinx.android.synthetic.main.fragment_rakaat_shomar.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -64,7 +63,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
         )
         mediaPlayer = MediaPlayer.create(activity, resID)
         mSensorManager = context?.getSystemService(SENSOR_SERVICE) as SensorManager
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)!!
         binding.tasbihat.setOnClickListener { findNavController().navigate(R.id.zekrShomarFragment) }
         binding.taaghibat.setOnClickListener {
             rakaatShomarViewModel.getListOfNamaz(Data.typeOFPray)
@@ -76,10 +75,10 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     private fun viewModelOperation() {
         with(rakaatShomarViewModel) {
             listOfTaaghibat.observeForever {
-                Timber.e(taaghibat.toString())
+                Timber.e(binding.taaghibat.toString())
                 if (it!!.isNotEmpty() && it.size == 1) {
                     val args = Bundle()
-                    args.putParcelable(NamazVajebFragment.ARG_PRAY, it[0])
+                    args.putSerializable(NamazVajebFragment.ARG_PRAY, it[0])
                     findNavController().navigate(R.id.contentTaghibat, args)
                 } else if (it.isNotEmpty()) {
                     Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG).show()
@@ -275,16 +274,16 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
             override fun onAnimationStart(animation: Animation) {}
             override fun onAnimationRepeat(animation: Animation) {}
             override fun onAnimationEnd(animation: Animation) {
-                imgRocaat.setImageResource(newImage)
+                binding.imgRocaat.setImageResource(newImage)
                 animIn.setAnimationListener(object : AnimationListener {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationRepeat(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {}
                 })
-                imgRocaat.startAnimation(animIn)
+                binding.imgRocaat.startAnimation(animIn)
             }
         })
-        imgRocaat.startAnimation(animOut)
+        binding.imgRocaat.startAnimation(animOut)
     }
 
 }

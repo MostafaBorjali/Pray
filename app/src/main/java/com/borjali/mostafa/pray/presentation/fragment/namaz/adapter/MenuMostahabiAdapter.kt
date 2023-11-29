@@ -1,6 +1,5 @@
 package com.borjali.mostafa.pray.presentation.fragment.namaz.adapter
 
-import android.widget.LinearLayout
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.ItemListMenuBinding
 import com.borjali.mostafa.pray.domain.model.Menu
