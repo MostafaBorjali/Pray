@@ -3,13 +3,13 @@ package com.borjali.mostafa.pray.extention
 import android.content.Intent
 import android.util.SparseArray
 import androidx.core.util.forEach
-import androidx.core.util.set
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.borjali.mostafa.pray.R
+
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
@@ -89,12 +89,6 @@ fun BottomNavigationView.setupWithNavController(
                     // Commit a transaction that cleans the back stack and adds the first fragment
                     // to it, creating the fixed started destination.
                     fragmentManager.beginTransaction()
-                        .setCustomAnimations(
-                            R.anim.nav_default_enter_anim,
-                            R.anim.nav_default_exit_anim,
-                            R.anim.nav_default_pop_enter_anim,
-                            R.anim.nav_default_pop_exit_anim
-                        )
                         .attach(selectedFragment)
                         .setPrimaryNavigationFragment(selectedFragment)
                         .apply {

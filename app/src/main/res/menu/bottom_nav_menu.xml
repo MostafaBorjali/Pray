@@ -7,13 +7,12 @@
         android:title="@string/title_about" />
 
     <item
-        android:id="@+id/rakaat_shomar_navigation"
-        android:icon="@drawable/ic_rakat_shomar"
-        android:title="@string/title_dashboard" />
-
-    <item
         android:id="@+id/namaz_navigation"
         android:icon="@drawable/ic_namaz"
         android:title="@string/title_notifications" />
+    <item
+        android:id="@+id/rakaat_shomar_navigation"
+        android:icon="@drawable/ic_rakat_shomar"
+        android:title="@string/title_dashboard" />
 
 </menu>
