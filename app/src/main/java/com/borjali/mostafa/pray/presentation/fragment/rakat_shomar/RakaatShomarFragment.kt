@@ -3,7 +3,9 @@
 package com.borjali.mostafa.pray.presentation.fragment.rakat_shomar
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Context.SENSOR_SERVICE
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -11,6 +13,7 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
@@ -27,12 +30,16 @@ import timber.log.Timber
 
 
 class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
+    private val PREFS_NAME = "PrayPrefs"
+    private val KEY_TOUCH = "touch"
     private var resID = 0
     private var step = 0
     private lateinit var mSensorManager: SensorManager
     private lateinit var mSensor: Sensor
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var adapter: ButtonAdapter
+    private lateinit var sharedPreferences: SharedPreferences
+    private var isActiveTouchMode = false
     private val rakaatShomarViewModel by viewModel<RakaatShomarViewModel>()
 
 
@@ -40,13 +47,50 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun oncreate() {
+        sharedPreferences = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         activity?.apply {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
         initView()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
+    private fun touchMode(){
+
+        binding.parentLayout.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    if (isActiveTouchMode)
+                    setStep(++step)
+                    true
+                }
+                else -> false
+            }
+        }
+        binding.touchModeButton.setOnClickListener {
+            if (isActiveTouchMode){
+                binding.txtTouch.visibility = View.GONE
+                binding.touchModeButton.setImageResource(R.drawable.touch_mode_de)
+
+            }else{
+                binding.txtTouch.visibility = View.VISIBLE
+                binding.touchModeButton.setImageResource(R.drawable.touch_mode)
+            }
+            isActiveTouchMode = !isActiveTouchMode
+            changeTouchMode(isActiveTouchMode)
+        }
+    }
+
     private fun initView() {
+        isActiveTouchMode = sharedPreferences.getBoolean(KEY_TOUCH, false).also {
+            if (it){
+                binding.touchModeButton.setImageResource(R.drawable.touch_mode)
+                binding.txtTouch.visibility = View.VISIBLE
+            }else{
+                binding.touchModeButton.setImageResource(R.drawable.touch_mode_de)
+                binding.txtTouch.visibility = View.GONE
+            }
+        }
         Data.position = 10
         val list = ArrayList<String>()
         list.add(getString(R.string.asha))
@@ -69,6 +113,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
             rakaatShomarViewModel.getListOfNamaz(Data.typeOFPray)
             Timber.e("clicked")
         }
+        touchMode()
         viewModelOperation()
     }
 
@@ -285,5 +330,9 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
         })
         binding.imgRocaat.startAnimation(animOut)
     }
-
+    private fun changeTouchMode(activeTouchMode: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean(KEY_TOUCH, activeTouchMode)
+        editor.apply()
+    }
 }

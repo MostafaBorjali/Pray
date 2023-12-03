@@ -24,8 +24,6 @@ android {
         }
     }
 
-// To inline the bytecode built with JVM target 1.8 into
-// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
 
     dataBinding {
         enabled = true
@@ -48,7 +46,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core-ktx:1.13.0-alpha01'
+    implementation 'androidx.core:core-ktx:1.13.0-alpha02'
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0-alpha13'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
@@ -56,9 +54,9 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
     // navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
-    implementation 'androidx.navigation:navigation-runtime-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.5'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.7.5'
 
     //size unit
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -71,20 +69,20 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
 
     // Koin for the dependencies injections
-    implementation 'org.koin:koin-android:2.1.5'
-    implementation 'org.koin:koin-android-viewmodel:2.1.5'
+    implementation 'org.koin:koin-android:2.1.6'
+    implementation 'org.koin:koin-android-viewmodel:2.1.6'
     implementation 'org.koin:koin-androidx-scope:2.1.5'
 //    implementation "org.koin:koin-core:2.1.5"
 //    implementation "org.koin:koin-android-architecture:0.8.2"
 
     // for room
-    implementation 'androidx.room:room-runtime:2.2.6'
-    annotationProcessor 'androidx.room:room-compiler:2.2.6'
-    kapt 'androidx.room:room-compiler:2.2.6'
+    implementation 'androidx.room:room-runtime:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.6.1'
+    kapt 'androidx.room:room-compiler:2.6.1'
 
     // Coroutines for asynchronous calls (and Deferred’s adapter)
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
     configurations {
         compile.exclude group: 'org.jetbrains.kotlinx', module: 'atomicfu-common'
     }
