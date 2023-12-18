@@ -142,7 +142,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
     private val sensListener: SensorEventListener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent) {
-            if (event.values[0] < mSensor.maximumRange) {
+            if (event.values[0] < mSensor.maximumRange && !isActiveTouchMode) {
                 setStep(++step)
             }
         }
