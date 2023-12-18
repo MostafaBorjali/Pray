@@ -1,5 +1,6 @@
 package com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb
 
+import android.annotation.SuppressLint
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +21,7 @@ class NamazVajebViewModel(private val prayRepository: NamazRepository) : ViewMod
     private val showError = SingleLiveEvent<String>()
     private val showLoading = ObservableBoolean()
 
+    @SuppressLint("NullSafeMutableLiveData")
     fun getListOfMenuNamazVajeb(type: Int) {
         showLoading.set(true)
         viewModelScope.launch {
@@ -35,6 +37,7 @@ class NamazVajebViewModel(private val prayRepository: NamazRepository) : ViewMod
         }
     }
 
+    @SuppressLint("NullSafeMutableLiveData")
     fun getListOfNamaz(groupId: Int) {
         viewModelScope.launch {
             when (val result = prayRepository.getListOfNamaz(groupId)) {

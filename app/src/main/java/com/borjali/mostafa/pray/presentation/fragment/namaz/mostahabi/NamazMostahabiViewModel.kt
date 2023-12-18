@@ -1,5 +1,6 @@
 package com.borjali.mostafa.pray.presentation.fragment.namaz.mostahabi
 
+import android.annotation.SuppressLint
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,6 +22,7 @@ class NamazMostahabiViewModel(private val prayRepository: NamazRepository) :
     private val showError = SingleLiveEvent<String>()
     private val showLoading = ObservableBoolean()
 
+    @SuppressLint("NullSafeMutableLiveData")
     fun getListOfNamazMostahabi(type: Int) {
         showLoading.set(true)
         viewModelScope.launch {
@@ -35,6 +37,7 @@ class NamazMostahabiViewModel(private val prayRepository: NamazRepository) :
             }
         }
     }
+    @SuppressLint("NullSafeMutableLiveData")
     fun getListOfNamaz(groupId: Int){
         viewModelScope.launch {
             when(val result = prayRepository.getListOfNamaz(groupId)){
