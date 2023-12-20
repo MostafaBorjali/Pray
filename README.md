@@ -19,7 +19,7 @@
 <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel" rel="nofollow">Android ViewModel</a></li>
 <li><a href="https://developer.android.com/topic/libraries/architecture/livedata" rel="nofollow">Android LiveData</a></li>
 <li><a href="https://developer.android.com/jetpack/docs/guide" rel="nofollow">MVVM architecture</a></li>
-<li><a href="https://medium.com/mindorks/how-to-make-complex-requests-simple-with-rxjava-in-kotlin-ccec004c5d10" rel="nofollow">Retrofit2</a></li>
+<li><a href="https://developer.android.com/training/data-storage/room" rel="nofollow">Room</a></li>
 </ul>
 <h2 dir="auto" tabindex="-1">Installation</h2>
 <p dir="auto">Install as usual,</p>
