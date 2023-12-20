@@ -1,7 +1,12 @@
 <h1><span style="color: #000000;"><strong>Pray</strong></span></h1>
-<p><span style="color: #000000;"><strong><span class="HwtZe" lang="en"><span class="jCAhz ChMk0b"><span class="ryNqvb">This app including a complete list of obligatory and recommended prayers</span></span> <span class="jCAhz ChMk0b"><span class="ryNqvb">Smart rakat count and dhikr count and follow-up of each prayer</span></span>. There are <span class="jCAhz ChMk0b"><span class="ryNqvb">More than 250 recommended prayers for months and events</span></span></span></strong></span></p>
+<p><span style="color: #000000;"><strong><span class="HwtZe" lang="en"><span class="jCAhz ChMk0b"><span class="ryNqvb">This app including a complete list of obligatory and recommended prayers.</span></span> 
+    <p>&nbsp;</p>
+  <span class="jCAhz ChMk0b"><span class="ryNqvb">Smart rakat count and dhikr count and follow-up of each prayer.</span></span>
+    <p>&nbsp;</p>
+  There are <span class="jCAhz ChMk0b"><span class="ryNqvb">More than 250 recommended prayers for months and events.</span></span></span></strong></span></p>
+  <p>&nbsp;</p>
 <h2 dir="auto" tabindex="-1" data-react-autofocus="true"><a id="user-content-introduction" class="anchor" tabindex="-1" href="https://github.com/OmneyaOsman/Movie-Zone#introduction"></a>Introduction</h2>
-<p> Simple pray application using clean architecture, MVVM, Repository pattern, and Architecture components</p>
+<p> Simple pray application using clean architecture, MVVM, Repository pattern, and Architecture components.</p>
 <p>&nbsp;</p>
 <h2 dir="auto" tabindex="-1" data-react-autofocus="true">Screenshots</h2>
 <img src = "https://github.com/MostafaBorjali/Pray/assets/13332751/c224ca88-747b-4f9c-9b7c-4139e8e104dc" width = "40%"></img>           <img src = "https://github.com/MostafaBorjali/Pray/assets/13332751/a280592a-b30a-43a5-ba9d-8db5a29a72b3" width = "40%"></img>
