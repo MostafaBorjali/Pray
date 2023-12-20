@@ -16,7 +16,6 @@
 <li><a href="https://developer.android.com/jetpack/docs/guide" rel="nofollow">MVVM architecture</a></li>
 <li><a href="https://medium.com/mindorks/how-to-make-complex-requests-simple-with-rxjava-in-kotlin-ccec004c5d10" rel="nofollow">Retrofit2</a></li>
 </ul>
-<h2 dir="auto" tabindex="-1">&nbsp;</h2>
 <h2 dir="auto" tabindex="-1">Installation</h2>
 <p dir="auto">Install as usual,</p>
 <ul dir="auto">
