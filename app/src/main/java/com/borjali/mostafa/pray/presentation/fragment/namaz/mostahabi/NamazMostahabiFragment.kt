@@ -9,7 +9,7 @@ import com.borjali.mostafa.pray.domain.model.Pray
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.adapter.MenuMostahabiAdapter
 import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment.Companion.ARG_PRAY
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NamazMostahabiFragment : BaseFragment<NamazTabFragmentBinding>() {
 
@@ -43,8 +43,9 @@ class NamazMostahabiFragment : BaseFragment<NamazTabFragmentBinding>() {
             }
         }
     }
-    companion object PassDataToFragMent{
-         var LISTOFPRAY: ArrayList<Pray>? = null
+
+    companion object PassDataToFragMent {
+        var LISTOFPRAY: ArrayList<Pray>? = null
 
     }
 }

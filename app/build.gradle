@@ -4,13 +4,13 @@ apply plugin: "kotlin-kapt"
 
 
 android {
-    compileSdkVersion 34
+    compileSdk 35
     namespace 'com.borjali.mostafa.pray'
 
     defaultConfig {
         applicationId "com.borjali.mostafa.pray"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkPreview "35"
         versionCode 5
         versionName "1.1.4"
         vectorDrawables.useSupportLibrary = true
@@ -69,9 +69,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
 
     // Koin for the dependencies injections
-    implementation 'org.koin:koin-android:2.1.6'
-    implementation 'org.koin:koin-android-viewmodel:2.1.6'
-    implementation 'org.koin:koin-androidx-scope:2.1.5'
+    implementation 'io.insert-koin:koin-android:4.0.0'
+
 //    implementation "org.koin:koin-core:2.1.5"
 //    implementation "org.koin:koin-android-architecture:0.8.2"
 

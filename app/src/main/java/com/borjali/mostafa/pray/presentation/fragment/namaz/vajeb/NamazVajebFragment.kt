@@ -1,7 +1,6 @@
 package com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.R
@@ -9,7 +8,7 @@ import com.borjali.mostafa.pray.databinding.NamazTabFragmentBinding
 import com.borjali.mostafa.pray.domain.model.Menu
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.adapter.MenuMostahabiAdapter
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 class NamazVajebFragment : BaseFragment<NamazTabFragmentBinding>() {

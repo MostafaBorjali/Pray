@@ -25,7 +25,7 @@ import com.borjali.mostafa.pray.databinding.FragmentRakaatShomarBinding
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment
 import com.borjali.mostafa.pray.utils.Data
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 
@@ -55,24 +55,25 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun touchMode(){
+    private fun touchMode() {
 
         binding.parentLayout.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     if (isActiveTouchMode)
-                    setStep(++step)
+                        setStep(++step)
                     true
                 }
+
                 else -> false
             }
         }
         binding.touchModeButton.setOnClickListener {
-            if (isActiveTouchMode){
+            if (isActiveTouchMode) {
                 binding.txtTouch.visibility = View.GONE
                 binding.touchModeButton.setImageResource(R.drawable.touch_mode_de)
 
-            }else{
+            } else {
                 binding.txtTouch.visibility = View.VISIBLE
                 binding.touchModeButton.setImageResource(R.drawable.touch_mode)
             }
@@ -83,10 +84,10 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
     private fun initView() {
         isActiveTouchMode = sharedPreferences.getBoolean(KEY_TOUCH, false).also {
-            if (it){
+            if (it) {
                 binding.touchModeButton.setImageResource(R.drawable.touch_mode)
                 binding.txtTouch.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.touchModeButton.setImageResource(R.drawable.touch_mode_de)
                 binding.txtTouch.visibility = View.GONE
             }
@@ -129,7 +130,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                     Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG).show()
                 }
             }
-            
+
         }
     }
 
@@ -161,6 +162,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                     sejdeMessage = ""
                 )
             }
+
             1 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_1_1,
@@ -169,6 +171,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 )
 
             }
+
             2 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_1_2,
@@ -176,6 +179,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                     sejdeMessage = getString(R.string.sajde_dowom)
                 )
             }
+
             3 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.rakat_shomar_pices_2_1,
@@ -184,6 +188,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 )
 
             }
+
             4 -> {
                 if (Data.numberOFRokaat == 2) {
                     imageViewAnimatedChange(
@@ -203,6 +208,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 }
 
             }
+
             5 -> {
                 if (Data.numberOFRokaat == 2) {
                     step = 10
@@ -224,6 +230,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
 
             }
+
             6 -> {
                 if (Data.numberOFRokaat == 3) {
                     step = 10
@@ -245,6 +252,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
 
 
             }
+
             7 -> {
                 if (Data.numberOFRokaat == 3) {
                     step = 10
@@ -264,6 +272,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 }
 
             }
+
             8 -> {
                 imageViewAnimatedChange(
                     newImage = R.drawable.ic_namaz,
@@ -276,6 +285,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                 }
 
             }
+
             9 -> {
                 binding.tasbihat.visibility = View.GONE
                 binding.taaghibat.visibility = View.GONE
@@ -285,6 +295,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
                     sejdeMessage = ""
                 )
             }
+
             else -> {
             }
         }
@@ -330,6 +341,7 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
         })
         binding.imgRocaat.startAnimation(animOut)
     }
+
     private fun changeTouchMode(activeTouchMode: Boolean) {
         val editor = sharedPreferences.edit()
         editor.putBoolean(KEY_TOUCH, activeTouchMode)
