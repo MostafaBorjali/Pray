@@ -2,11 +2,11 @@
 
 <FrameLayout
 
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp">
+    android:layout_height="@dimen/_60sdp">
 
     <com.borjali.mostafa.pray.utils.tabbar.TabBarMotion
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,141 +16,153 @@
         android:background="#00000000"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="bottom"
-        android:id="@+id/tabbarMotion"
-            />
+        android:id="@+id/tabbarMotion" />
 
     <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/payment"
             android:layout_height="match_parent">
 
-        <FrameLayout android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:id="@+id/payment"
-                     android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="@dimen/_40sdp"
+                android:background="@drawable/circle"
+                android:id="@+id/payment_circle"
+                android:layout_gravity="center|top"
+                android:layout_height="@dimen/_40sdp">
 
-            <FrameLayout android:layout_width="@dimen/_40sdp"
-                         android:background="@drawable/circle"
-                         android:id="@+id/payment_circle"
-                         android:layout_gravity="center|top"
-                         android:layout_height="@dimen/_40sdp">
                 <ImageView
-                        android:layout_width="@dimen/_25sdp"
-                        android:scaleType="fitXY"
+                    android:layout_width="@dimen/_25sdp"
+                    android:scaleType="fitXY"
                     app:srcCompat="@drawable/ic_amoozesh_ahkam"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_25sdp"
                     tools:ignore="VectorDrawableCompat"
                     app:tint="@color/white" />
             </FrameLayout>
 
 
-            <ImageView android:layout_width="@dimen/_20sdp"
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
                 app:srcCompat="@drawable/ic_amoozesh_ahkam"
-                       android:layout_gravity="center|bottom"
-                       android:id="@+id/payment_icone"
-                       android:layout_marginBottom="@dimen/_10sdp"
-                       android:layout_height="@dimen/_20sdp"
-                tools:ignore="VectorDrawableCompat"
-                app:tint="@color/white" />
-
-            <TextView android:layout_width="match_parent"
-                      android:layout_gravity="bottom"
-                      android:id="@+id/payment_text"
-                      android:textColor="#fff"
-                      android:textSize="12sp"
-                      android:layout_marginBottom="@dimen/_1sdp"
-                      android:text="@string/title_home"
-                      android:gravity="center"
-                      android:layout_height="wrap_content"
-            />
-
-
-        </FrameLayout>
-        <FrameLayout android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:id="@+id/home"
-                     android:layout_height="match_parent">
-
-
-            <FrameLayout android:layout_width="@dimen/_40sdp"
-                         android:id="@+id/home_circle"
-                         android:background="@drawable/circle"
-                         android:layout_gravity="center|top"
-                         android:layout_height="@dimen/_40sdp">
-                <ImageView
-                        android:layout_width="@dimen/_25sdp"
-                        android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_rakat_shomar"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_25sdp"
-                    tools:ignore="VectorDrawableCompat"
-                    app:tint="@color/white" />
-            </FrameLayout>
-
-            <ImageView android:layout_width="@dimen/_20sdp"
-                       android:id="@+id/home_icon"
-                       android:layout_gravity="center|bottom"
-                       android:layout_marginBottom="@dimen/_10sdp"
-                app:srcCompat="@drawable/ic_rakat_shomar"
-                       android:layout_height="@dimen/_20sdp"
-                tools:ignore="VectorDrawableCompat"
-                app:tint="@color/white" />
-
-            <TextView android:layout_width="match_parent"
-                      android:layout_gravity="bottom"
-                      android:id="@+id/home_text"
-                      android:textColor="#fff"
-                      android:layout_marginBottom="@dimen/_1sdp"
-                      android:text="@string/title_dashboard"
-                      android:textSize="12sp"
-                      android:gravity="center"
-                      android:layout_height="wrap_content"
-            />
-
-
-        </FrameLayout>
-
-        <FrameLayout android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:id="@+id/profile"
-                     android:layout_height="match_parent">
-
-            <FrameLayout android:layout_width="@dimen/_40sdp"
-                         android:id="@+id/profile_circle"
-                         android:background="@drawable/circle"
-                         android:layout_gravity="center|top"
-                         android:layout_height="@dimen/_40sdp">
-                <ImageView
-                        android:layout_width="@dimen/_25sdp"
-                        android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_namaz"
-                        android:layout_gravity="center"
-                        android:layout_height="@dimen/_25sdp"
-                    tools:ignore="VectorDrawableCompat"
-                    app:tint="@color/white" />
-            </FrameLayout>
-
-            <ImageView android:layout_width="@dimen/_20sdp"
-                       android:id="@+id/profile_icon"
-                       android:layout_gravity="center|bottom"
-                       android:layout_marginBottom="@dimen/_10sdp"
-                       app:srcCompat="@drawable/ic_namaz"
+                android:layout_gravity="center|bottom"
+                android:id="@+id/payment_icone"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_height="@dimen/_20sdp"
                 tools:ignore="VectorDrawableCompat"
                 app:tint="@color/white" />
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_gravity="bottom"
-                      android:id="@+id/profile_text"
-                      android:layout_marginBottom="@dimen/_1sdp"
-                      android:text="@string/title_notifications"
-                      android:gravity="center"
-                      android:textSize="12sp"
-                      android:textColor="#fff"
-                      android:layout_height="wrap_content"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:id="@+id/payment_text"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:layout_marginBottom="@dimen/_1sdp"
+                android:text="@string/title_home"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/home"
+            android:layout_height="match_parent">
+
+
+            <FrameLayout
+                android:layout_width="@dimen/_40sdp"
+                android:id="@+id/home_circle"
+                android:background="@drawable/circle"
+                android:layout_gravity="center|top"
+                android:layout_height="@dimen/_40sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_rakat_shomar"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_25sdp"
+                    tools:ignore="VectorDrawableCompat"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:id="@+id/home_icon"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:srcCompat="@drawable/ic_rakat_shomar"
+                android:layout_height="@dimen/_20sdp"
+                tools:ignore="VectorDrawableCompat"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:id="@+id/home_text"
+                android:textColor="#fff"
+                android:layout_marginBottom="@dimen/_1sdp"
+                android:text="@string/title_dashboard"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/profile"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="@dimen/_40sdp"
+                android:id="@+id/profile_circle"
+                android:background="@drawable/circle"
+                android:layout_gravity="center|top"
+                android:layout_height="@dimen/_40sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_namaz"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_25sdp"
+                    tools:ignore="VectorDrawableCompat"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:id="@+id/profile_icon"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:srcCompat="@drawable/ic_namaz"
+                android:layout_height="@dimen/_20sdp"
+                tools:ignore="VectorDrawableCompat"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:id="@+id/profile_text"
+                android:layout_marginBottom="@dimen/_1sdp"
+                android:text="@string/title_notifications"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:layout_height="wrap_content" />
 
 
         </FrameLayout>

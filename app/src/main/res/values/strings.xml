@@ -3,6 +3,7 @@
     <string name="title_home">آموزش</string>
     <string name="title_about">درباره ما</string>
     <string name="title_dashboard">رکعت شمار</string>
+    <string name="ahkam">آموزش احکام</string>
     <string name="title_notifications">نمازها</string>
     <string name="salame_namaz">تشهد و سلام</string>
     <string name="rakat_aval">رکعت اول</string>
@@ -21,10 +22,30 @@
     <string name="raw">raw</string>
     <string name="namaz">نمازها</string>
     <string name="amoozesh">آموزش</string>
-    <string name="version">ورژن :</string>
     <string name="payambar">پیامبر (ص)</string>
     <string name="fa_hadis">هر چیز دارای سیماست، سیمای دین شما نماز است</string>
     <string name="Ab_hadis">لِکُلِّ شَیءٍ وَجهٌ وَ وَجهُ دینِکم الصَّلاةُ</string>
     <string name="tasbihat">تسبیحات</string>
     <string name="taaghibat">تعقیبات</string>
+    <string name="more">بیشتر</string>
+    <string name="version_app">ورژن: %1$s</string>
+    <string name="setting">امتیاز و ثبت نظر</string>
+    <string name="zekr_shomar">صلوات شمار</string>
+    <string name="rakaat_shomar">رکعت شمار</string>
+    <string name="bazaar_not_install_message">برنامه بازار نصب نیست!</string>
+    <string name="bazaar_package_name">com.farsitel.bazaar</string>
+    <string name="bazaar_details_id_com_borjali_mostafa_pray">bazaar://details?id=com.borjali.mostafa.pray</string>
+    <string name="bazaar_url">https://cafebazaar.ir/</string>
+    <string name="about_message">\ کاربر گرامی\nاین برنامه شامل بخش های زیر می باشد:\nلیست و کیفیت خواندن نماز های واجب \n لیست و کیفیت خواندن نماز های مستحبی\nآموزش احکام و روش صحیح خوانی نمازها \n\nاین برنامه کاملاً رایگان بوده و درصورت امکان ما را از دعای خیرتان محروم نفرمایید\n با تشکر\n\t \t سید علی موسوی و مصطفی برجعلی \n\nنظرات و انتقادات خود را به ایمیل زیر ارسال نمایید \nMostafa.borjali.68@gmail.com\n</string>
+    <string name="internet_message">به اینترنت وصل نمی باشید!</string>
+    <string name="end_message">پایان</string>
+    <string name="app_exit_message">برای خروج دوبار دکمه بک را بزنید</string>
+    <string name="mail_to">mailto:</string>
+    <string name="my_gmail">mostafa.borjali.68@gmail.com</string>
+    <string name="gmail_subject">خطا در برنامه ی نماز های مستحبی</string>
+    <string name="gmail_body">"با سلام و احترام"</string>
+    <string name="send_email">ارسال ایمیل …</string>
+    <string name="report_title">گزارش خطا</string>
+    <string name="error_send_email">خطا در ارسال ایمل</string>
+    <string name="rakaat_shomar_message">برای استفاده صفحه را لمس کنید.</string>
 </resources>

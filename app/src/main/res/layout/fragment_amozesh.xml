@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,46 +12,24 @@
         <include
             android:id="@+id/menuAmozesh"
             layout="@layout/toolbar"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView2"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyceler_view_amozesh"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:alpha="0.15"
-            android:scaleType="fitXY"
-            android:src="@drawable/back_flower"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:direction="@{`vertical`}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/menuAmozesh" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/estedad_medium"
-            android:text="درحال توسعه ..."
-            android:textColor="@color/titleTextColor"
-            android:textSize="@dimen/_40sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_200sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/menuAmozesh"
-            app:layout_constraintVertical_bias="0.25"
-            app:srcCompat="@drawable/ic_app_development" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

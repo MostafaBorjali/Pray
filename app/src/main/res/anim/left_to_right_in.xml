@@ -6,7 +6,10 @@
         android:fromAlpha="0.0"
         android:interpolator="@android:anim/decelerate_interpolator"
         android:toAlpha="1.0" />
-    <translate android:fromXDelta="-50%" android:toXDelta="0%"
-        android:fromYDelta="0%" android:toYDelta="0%"
-        android:duration="@android:integer/config_longAnimTime"/>
+    <translate
+        android:fromXDelta="-50%"
+        android:toXDelta="0%"
+        android:fromYDelta="0%"
+        android:toYDelta="0%"
+        android:duration="@android:integer/config_longAnimTime" />
 </set>
