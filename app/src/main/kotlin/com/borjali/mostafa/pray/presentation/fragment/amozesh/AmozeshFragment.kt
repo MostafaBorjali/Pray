@@ -15,10 +15,7 @@ class AmozeshFragment : BaseFragment<FragmentAmozeshBinding>() {
     override fun getLayoutResourceId() = R.layout.fragment_amozesh
 
     override fun oncreate() {
-        menuHandel()
-
         viewModelOperation()
-
     }
 
     private fun viewModelOperation() {
@@ -36,12 +33,7 @@ class AmozeshFragment : BaseFragment<FragmentAmozeshBinding>() {
         }
     }
 
-    private fun menuHandel() {
-        with(binding.menuAmozesh) {
-            btnMenuBack.visibility = View.GONE
-            txtTitleMenu.text = getString(R.string.amoozesh)
-        }
-    }
+
 
     companion object {
         const val GROUP_ID = "groupId"

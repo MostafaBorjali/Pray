@@ -9,7 +9,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -56,6 +59,23 @@ fun TextView.setTextAnimation(
             }
         }
     }
+}
+
+fun Fragment. colorizeArabicDiacritics(
+    text: String,
+    color: Int
+): SpannableStringBuilder {
+    val spannable = SpannableStringBuilder(text)
+    val diacriticRegex =
+        "[\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652\u0653\u0654\u0655]".toRegex()
+
+    diacriticRegex.findAll(text).forEach { matchResult ->
+        val start = matchResult.range.first
+        val end = matchResult.range.last + 1
+        spannable.setSpan(ForegroundColorSpan(color), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    }
+
+    return spannable
 }
 
 fun View.fadOutAnimation(

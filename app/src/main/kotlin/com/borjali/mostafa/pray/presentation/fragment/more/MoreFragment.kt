@@ -8,12 +8,13 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.BuildConfig
 import com.borjali.mostafa.pray.R
+import com.borjali.mostafa.pray.core.prayConstant.TASBIHAT
+import com.borjali.mostafa.pray.core.prayConstant.TITLE
 import com.borjali.mostafa.pray.databinding.FragmentMoreBinding
 import com.borjali.mostafa.pray.extention.isConnected
 import com.borjali.mostafa.pray.extention.isPackageInstalled
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
-import com.borjali.mostafa.pray.presentation.fragment.rakat_shomar.RakaatShomarFragment.Companion.TASBIHAT
-import com.borjali.mostafa.pray.presentation.fragment.rakat_shomar.RakaatShomarFragment.Companion.TITLE
+import androidx.core.net.toUri
 
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>() {
@@ -50,15 +51,15 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>() {
         if (requireContext().isPackageInstalled(getString(R.string.bazaar_package_name))) {
             try {
                 val intent = Intent(Intent.ACTION_EDIT)
-                intent.setData(Uri.parse(getString(R.string.bazaar_details_id_com_borjali_mostafa_pray)))
+                intent.data = getString(R.string.bazaar_details_id_com_borjali_mostafa_pray).toUri()
                 intent.setPackage(getString(R.string.bazaar_package_name))
                 startActivity(intent)
-            }catch (e: ActivityNotFoundException){
+            } catch (_: ActivityNotFoundException) {
                 installCafe()
             }
 
         } else {
-           installCafe()
+            installCafe()
         }
 
     }
@@ -67,7 +68,7 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>() {
         if (requireContext().isConnected) {
             val url = getString(R.string.bazaar_url)
             val i = Intent(Intent.ACTION_VIEW)
-            i.setData(Uri.parse(url))
+            i.data = url.toUri()
             startActivity(i)
         } else {
             Toast.makeText(

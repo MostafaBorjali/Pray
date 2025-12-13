@@ -9,14 +9,17 @@ import android.window.SplashScreen
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.borjali.mostafa.pray.R
 import com.borjali.mostafa.pray.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         setupNavigation()
+        handleShortcutIntent()
     }
 
     private fun setupNavigation() {
@@ -49,6 +53,25 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun handleShortcutIntent() {
+
+        lifecycle.coroutineScope.launch {
+            delay(2500)
+            withContext(Dispatchers.Main){
+                val shortcutType = intent.getStringExtra("shortcut_type")
+                val openDirect = intent.getBooleanExtra("open_direct", false)
+
+                if (openDirect && shortcutType != null) {
+                    // باز کردن مستقیم صفحه مورد نظر
+                    when (shortcutType) {
+                        "rakaat_shomar" -> navController.navigate(R.id.rakaatShomarFragment)
+                    }
+
+                }
+            }
+        }
+
+    }
 
     override fun onBackPressed() {
         if (navController.currentDestination?.id == R.id.namazFragment ||

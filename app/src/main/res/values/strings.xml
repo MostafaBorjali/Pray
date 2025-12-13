@@ -42,10 +42,15 @@
     <string name="app_exit_message">برای خروج دوبار دکمه بک را بزنید</string>
     <string name="mail_to">mailto:</string>
     <string name="my_gmail">mostafa.borjali.68@gmail.com</string>
-    <string name="gmail_subject">خطا در برنامه ی نماز های مستحبی</string>
+    <string name="gmail_subject"> نماز های مستحبی</string>
     <string name="gmail_body">"با سلام و احترام"</string>
     <string name="send_email">ارسال ایمیل …</string>
-    <string name="report_title">گزارش خطا</string>
+    <string name="report_title">دریافت پیشنهادات</string>
     <string name="error_send_email">خطا در ارسال ایمل</string>
     <string name="rakaat_shomar_message">برای استفاده صفحه را لمس کنید.</string>
+    <string name="permission_guide_simple">مراحل دادن دسترسی به صورت دستی:\n1. به تنظیمات - برنامه‌ها بروید\n2. برنامه ما را انتخاب کنید\n3. روی دسترسی‌ها کلیک کنید\n4. گزینه ایجاد میانبر در صفحه اصلی را فعال کنید\nتوجه: در برخی گوشی‌ها این گزینه ممکن است در سایر دسترسی‌ها باشد.</string>
+    <string name="shortcut_confirm">بله، ایجاد کن</string>
+    <string name="shortcut_cancel">نه، ممنونم</string>
+    <string name="shortcut_description">آیا می‌خواهید یک دسترسی سریع برای رکعت شمار روی صفحه اصلی ایجاد کنید؟</string>
+    <string name="shortcut_title">دسترسی سریع</string>
 </resources>

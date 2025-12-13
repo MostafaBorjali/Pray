@@ -4,12 +4,12 @@ import android.annotation.SuppressLint
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.R
+import com.borjali.mostafa.pray.core.prayConstant.TASBIHAT
+import com.borjali.mostafa.pray.core.prayConstant.TITLE
 import com.borjali.mostafa.pray.databinding.FragmentZekrShomarBinding
 import com.borjali.mostafa.pray.extention.longVibratePhone
 import com.borjali.mostafa.pray.extention.shortVibratePhone
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
-import com.borjali.mostafa.pray.presentation.fragment.rakat_shomar.RakaatShomarFragment.Companion.TASBIHAT
-import com.borjali.mostafa.pray.presentation.fragment.rakat_shomar.RakaatShomarFragment.Companion.TITLE
 
 @SuppressLint("SetTextI18n")
 class ZekrShomarFragment : BaseFragment<FragmentZekrShomarBinding>() {

@@ -1,17 +1,21 @@
-@file:Suppress("DEPRECATION")
-
 package com.borjali.mostafa.pray.presentation.fragment.rakat_shomar
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Context.SENSOR_SERVICE
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -21,19 +25,25 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.R
+import com.borjali.mostafa.pray.core.prayConstant.KEY_TOUCH
+import com.borjali.mostafa.pray.core.prayConstant.PREFS_NAME
 import com.borjali.mostafa.pray.databinding.FragmentRakaatShomarBinding
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
 import com.borjali.mostafa.pray.presentation.fragment.namaz.vajeb.NamazVajebFragment
 import com.borjali.mostafa.pray.utils.Data
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import androidx.core.content.edit
+import com.borjali.mostafa.pray.core.prayConstant.TASBIHAT
+import com.borjali.mostafa.pray.core.prayConstant.TITLE
+import com.borjali.mostafa.pray.presentation.activity.MainActivity
+import com.borjali.mostafa.pray.presentation.fragment.more.AboutBottomSheetDialog
 
 
 class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
-    private val PREFS_NAME = "PrayPrefs"
-    private val KEY_TOUCH = "touch"
     private var resID = 0
     private var step = 0
+    private var brightness  = 0.0f
     private lateinit var mSensorManager: SensorManager
     private lateinit var mSensor: Sensor
     private lateinit var mediaPlayer: MediaPlayer
@@ -119,8 +129,36 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
             rakaatShomarViewModel.getListOfNamaz(Data.typeOFPray)
         }
         binding.backButton.setOnClickListener { findNavController().popBackStack() }
+        binding.brightnessButton.setOnClickListener {
+            when (brightness) {
+
+                0.8f -> {
+                    setBrightness(0.5f)
+                }
+
+                0.5f -> {
+                    setBrightness(0.25f)
+                }
+
+                0.25f -> {
+                    setBrightness(0.0f)
+                }
+
+                0.0f -> {
+                    setBrightness(0.8f)
+                }
+            }
+        }
+        binding.shortcut.setOnClickListener {
+            ShortcutBottomSheetDialog().show(childFragmentManager, "ModalBottomSheet")
+        }
         touchMode()
         viewModelOperation()
+    }
+
+    private fun setBrightness(bright: Float) {
+        brightness = bright
+       binding.layoutBrightness.alpha = brightness.toFloat()
     }
 
     private fun viewModelOperation() {
@@ -348,14 +386,10 @@ class RakaatShomarFragment : BaseFragment<FragmentRakaatShomarBinding>() {
     }
 
     private fun changeTouchMode(activeTouchMode: Boolean) {
-        val editor = sharedPreferences.edit()
-        editor.putBoolean(KEY_TOUCH, activeTouchMode)
-        editor.apply()
+        sharedPreferences.edit {
+            putBoolean(KEY_TOUCH, activeTouchMode)
+        }
     }
 
-    companion object {
-        const val TASBIHAT = "tasbihat"
-        const val TITLE = "title"
-    }
 }
 
