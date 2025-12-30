@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background">
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:background="@drawable/ic_arc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/attachLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="-100dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_background"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/iransans_medium"
+                    android:text="@string/Ab_hadis"
+                    android:textColor="@color/titleTextColor"
+                    android:textSize="@dimen/_18sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextSizeCheck" />
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/iransans_light"
+                    android:gravity="right"
+                    android:text="@string/fa_hadis"
+                    android:textColor="@color/titleTextColor"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:ignore="TextSizeCheck" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:fontFamily="@font/iransans_light"
+                    android:text="@string/payambar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/attachLayout"
+                app:layout_constraintEnd_toEndOf="@+id/attachLayout"
+                app:layout_constraintStart_toStartOf="@+id/attachLayout"
+                app:layout_constraintTop_toTopOf="@+id/attachLayout"
+                app:srcCompat="@drawable/ic_icon_transparent"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <View
+                android:id="@+id/round_shape_one"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_background_item_list"
+                android:backgroundTint="@color/colorDarkGreen"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="-16dp"
+                android:background="@drawable/rounded_background"
+                app:layout_constraintEnd_toStartOf="@+id/round_shape_one"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/attachLayout">
+
+                <View
+                    android:id="@+id/rakaat_shomar_icon"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_rakat_shomar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/rakaat_shomar_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/iransans_medium"
+                    android:gravity="right"
+                    android:text="@string/rakaat_shomar"
+                    android:textColor="@color/titleTextColor"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/rakaat_shomar_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/rakaat_shomar_icon"
+                    app:layout_constraintStart_toEndOf="@+id/go_to_rakaat_shomar"
+                    app:layout_constraintTop_toTopOf="@+id/rakaat_shomar_icon"
+                    tools:ignore="TextSizeCheck" />
+
+                <View
+                    android:id="@+id/go_to_rakaat_shomar"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/ic_forward"
+                    android:rotation="180"
+                    app:layout_constraintBottom_toBottomOf="@+id/rakaat_shomar_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/rakaat_shomar_text" />
+
+                <View
+                    android:id="@+id/zekr_shomar_icon"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/ic_zeker_shomar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+                <TextView
+                    android:id="@+id/zekr_shomar_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/iransans_medium"
+                    android:gravity="right"
+                    android:text="@string/zekr_shomar"
+                    android:textColor="@color/titleTextColor"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/zekr_shomar_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/zekr_shomar_icon"
+                    app:layout_constraintStart_toEndOf="@+id/go_to_zekr_shomar"
+                    app:layout_constraintTop_toTopOf="@+id/zekr_shomar_icon"
+                    tools:ignore="TextSizeCheck" />
+
+                <View
+                    android:id="@+id/go_to_zekr_shomar"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/ic_forward"
+                    android:rotation="180"
+                    app:layout_constraintBottom_toBottomOf="@+id/zekr_shomar_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/zekr_shomar_text" />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/rakaat_shomar_icon"
+                    app:layout_constraintStart_toStartOf="@+id/go_to_rakaat_shomar"
+                    app:layout_constraintTop_toBottomOf="@+id/rakaat_shomar_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/round_shape_two"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_background_item_list"
+                android:backgroundTint="@color/colorDarkGreen"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_about"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/layout_about" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="-16dp"
+                android:background="@drawable/rounded_background"
+                app:layout_constraintEnd_toStartOf="@+id/round_shape_two"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                <View
+                    android:id="@+id/point_icon"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_star"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/point_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/iransans_medium"
+                    android:gravity="right"
+                    android:text="@string/setting"
+                    android:textColor="@color/titleTextColor"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/point_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/point_icon"
+                    app:layout_constraintStart_toEndOf="@+id/go_to_point"
+                    app:layout_constraintTop_toTopOf="@+id/point_icon"
+                    tools:ignore="TextSizeCheck" />
+
+                <View
+                    android:id="@+id/go_to_point"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/ic_forward"
+                    android:rotation="180"
+                    app:layout_constraintBottom_toBottomOf="@+id/point_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/point_text" />
+
+                <View
+                    android:id="@+id/about_icon"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/ic_info"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_about" />
+
+                <TextView
+                    android:id="@+id/about_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/iransans_medium"
+                    android:gravity="right"
+                    android:text="@string/title_about"
+                    android:textColor="@color/titleTextColor"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/about_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/about_icon"
+                    app:layout_constraintStart_toEndOf="@+id/go_to_about"
+                    app:layout_constraintTop_toTopOf="@+id/about_icon"
+                    tools:ignore="TextSizeCheck" />
+
+                <View
+                    android:id="@+id/go_to_about"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/ic_forward"
+                    android:rotation="180"
+                    app:layout_constraintBottom_toBottomOf="@+id/about_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/about_text" />
+
+                <View
+                    android:id="@+id/divider_about"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/about_icon"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/go_to_point"
+                    app:layout_constraintTop_toBottomOf="@+id/point_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/version_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:alpha="0.6"
+                android:fontFamily="@font/iransans_medium"
+                android:gravity="center"
+                android:textColor="@color/titleTextColor"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_about" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

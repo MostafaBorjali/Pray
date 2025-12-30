@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">نماز های مستحبی</string>
     <string name="title_home">آموزش</string>
     <string name="title_about">درباره ما</string>
     <string name="title_dashboard">رکعت شمار</string>
@@ -35,6 +34,7 @@
     <string name="bazaar_not_install_message">برنامه بازار نصب نیست!</string>
     <string name="bazaar_package_name">com.farsitel.bazaar</string>
     <string name="bazaar_details_id_com_borjali_mostafa_pray">bazaar://details?id=com.borjali.mostafa.pray</string>
+    <string name="myket_details_id_com_borjali_mostafa_pray">myket://comment?id=com.borjali.mostafa.pray.myket</string>
     <string name="bazaar_url">https://cafebazaar.ir/</string>
     <string name="about_message">\ کاربر گرامی\nاین برنامه شامل بخش های زیر می باشد:\nلیست و کیفیت خواندن نماز های واجب \n لیست و کیفیت خواندن نماز های مستحبی\nآموزش احکام و روش صحیح خوانی نمازها \n\nاین برنامه کاملاً رایگان بوده و درصورت امکان ما را از دعای خیرتان محروم نفرمایید\n با تشکر\n\t \t سید علی موسوی و مصطفی برجعلی \n\nنظرات و انتقادات خود را به ایمیل زیر ارسال نمایید \nMostafa.borjali.68@gmail.com\n</string>
     <string name="internet_message">به اینترنت وصل نمی باشید!</string>

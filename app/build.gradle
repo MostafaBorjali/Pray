@@ -8,15 +8,27 @@ android {
     namespace 'com.borjali.mostafa.pray'
 
     defaultConfig {
-        applicationId "com.borjali.mostafa.pray"
         minSdkVersion 23
         targetSdkPreview "36"
-        versionCode 9
-        versionName "1.2.2"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    flavorDimensions += "pray"
+    productFlavors {
+        create("cafe") {
+            applicationId "com.borjali.mostafa.pray"
+            dimension = "pray"
+            versionCode 9
+            versionName "1.2.2"
+        }
 
+        create("myket") {
+            applicationId "com.borjali.mostafa.pray.myket"
+            dimension = "pray"
+            versionCode 2
+            versionName = "1.0.1"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
@@ -37,6 +49,24 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+    sourceSets {
+        cafe {
+            res {
+                srcDirs 'src\\cafe\\res'
+            }
+            java {
+                srcDirs 'src\\cafe\\java', 'src\\cafe\\kotlin'
+            }
+        }
+        myket {
+            res {
+                srcDirs 'src\\myket\\res'
+            }
+            java {
+                srcDirs 'src\\myket\\java', 'src\\myket\\kotlin'
+            }
+        }
     }
 
 }
@@ -73,7 +103,6 @@ dependencies {
 
     // Koin for the dependencies injections
     implementation 'io.insert-koin:koin-android:4.1.1'
-
 
 
     // Glide

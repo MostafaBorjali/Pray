@@ -2,9 +2,9 @@ package com.borjali.mostafa.pray.presentation.fragment.more
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import com.borjali.mostafa.pray.BuildConfig
 import com.borjali.mostafa.pray.R
@@ -14,7 +14,6 @@ import com.borjali.mostafa.pray.databinding.FragmentMoreBinding
 import com.borjali.mostafa.pray.extention.isConnected
 import com.borjali.mostafa.pray.extention.isPackageInstalled
 import com.borjali.mostafa.pray.presentation.base.BaseFragment
-import androidx.core.net.toUri
 
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>() {
@@ -48,19 +47,30 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>() {
     }
 
     private fun goToPoint() {
-        if (requireContext().isPackageInstalled(getString(R.string.bazaar_package_name))) {
-            try {
-                val intent = Intent(Intent.ACTION_EDIT)
-                intent.data = getString(R.string.bazaar_details_id_com_borjali_mostafa_pray).toUri()
-                intent.setPackage(getString(R.string.bazaar_package_name))
-                startActivity(intent)
-            } catch (_: ActivityNotFoundException) {
+        if (BuildConfig.FLAVOR.contentEquals("cafe")) {
+            if (requireContext().isPackageInstalled(getString(R.string.bazaar_package_name))) {
+                try {
+                    val intent = Intent(Intent.ACTION_EDIT)
+                    intent.data =
+                        getString(R.string.bazaar_details_id_com_borjali_mostafa_pray).toUri()
+                    intent.setPackage(getString(R.string.bazaar_package_name))
+                    startActivity(intent)
+                } catch (_: ActivityNotFoundException) {
+                    installCafe()
+                }
+
+            } else {
                 installCafe()
             }
-
         } else {
-            installCafe()
+            try {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = getString(R.string.myket_details_id_com_borjali_mostafa_pray).toUri()
+                startActivity(intent)
+            } catch (_: Exception) {
+            }
         }
+
 
     }
 
